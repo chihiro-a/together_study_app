@@ -1,24 +1,27 @@
 class StudyTimesController < ApplicationController
   def new
-    @studeytime = StudyTime.new
+    @study_time = StudyTime.new
   end
 
   def create
-    @studey_time = StudyTime.new
-    @studey_time.user_id = current_user.id
+    @study_time = StudyTime.new(study_time_params)
+    @study_time.user_id = current_user.id
     d = Date.today
-    @studey_time.year = d.year
-    @studey_time.month = d.month
-    @studey_time.date = d.mday
-    @studey_time.hour = params[:hour]
-    @studey_time.min = params[:min]
-    @studey_time.comment = params[:comment]
-    @studey_time.save
+    @study_time.year = d.year
+    @study_time.month = d.month
+    @study_time.date = d.mday
+    @study_time.save
     redirect_to study_times_path
   end
 
   def index
     @study_times = current_user.study_times
+    d = Date.today
+    today_times = StudyTime.where(year: d.year,month: d.month, date: d.mday)
+    today_hour = today_times.all.sum(:hour) * 60
+    today_min = today_times.all.sum(:min)
+    @total_time = ((today_hour + today_min) / 60.0).floor(1)
+
   end
 
   def edit

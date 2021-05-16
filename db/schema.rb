@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_16_060513) do
+ActiveRecord::Schema.define(version: 2021_05_16_122550) do
+
+  create_table "recommends", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.string "outher"
+    t.string "publisher"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "study_times", force: :cascade do |t|
     t.integer "user_id"

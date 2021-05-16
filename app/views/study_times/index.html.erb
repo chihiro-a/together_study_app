@@ -1,5 +1,5 @@
 <h1>勉強時間一覧画面</h1>
-<h2>今日は時間勉強しました</h2>
+<h2>今日は<%= @total_time %>時間勉強しました</h2>
 <h2>今週は時間勉強しました</h2>
 <% @study_times.each do |studey_time| %>
 <%= studey_time.year %>年
@@ -10,5 +10,8 @@
 <div>コメント
     <%= studey_time.comment %>
 </div>
-<%= link_to "編集する",edit_study_time_path(studey_time.id) %>
+<div>
+    <%= link_to "編集する",edit_study_time_path(studey_time.id) %>
+</div>
+
 <% end %>
