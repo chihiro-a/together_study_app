@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'study_times/new'
-  get 'study_times/create'
-  get 'study_times/index'
-  get 'study_times/edit'
+  devise_for :users
   root to: 'homes#top'
   get 'homes/about'
-  devise_for :users
+  resources :study_times,only:[:new,:create,:index,:update,:edit]
 end

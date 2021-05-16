@@ -1,2 +1,8 @@
 <h1>勉強時間修正画面</h1>
-<p>Find me in app/views/study_times/edit.html.erb</p>
+<%= form_with model:@study_time , url:study_time_path, local:true do |f| %>
+<%= f.text_field :hour %>時間<%= f.text_field :min %>分
+<div>コメント
+    <%= f.text_field :comment %>
+</div>
+<%= f.submit"変更する" %>
+<% end %>
