@@ -1,0 +1,16 @@
+<h1>おすすめ書籍編集画面</h1>
+<%= form_with model:@recommend , url:"/recommends/#{@recommend.id}", local:true do |f| %>
+<p>タイトル
+  <%= f.text_field :title %>
+</p>
+<p>著者
+  <%= f.text_field :outher %>
+</p>
+<p>出版社
+  <%= f.text_field :publisher %>
+</p>
+<div>コメント
+    <%= f.text_field :body %>
+</div>
+<%= f.submit"編集内容を登録する" %>
+<% end %>
