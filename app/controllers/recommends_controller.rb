@@ -12,6 +12,7 @@ class RecommendsController < ApplicationController
 
   def show
     @recommend = Recommend.find(params[:id])
+    @recommend_comment = RecommendComment.new
   end
 
   def index

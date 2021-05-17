@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about'
   resources :study_times,only:[:new,:create,:index,:update,:edit]
-  resources :recommends
+  resources :recommends do
+    resource :favorites, only: [:create, :destroy]
+    resources :recommend_comments, only: [:create, :destroy]
+  end
+    
 end

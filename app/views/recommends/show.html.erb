@@ -7,3 +7,11 @@
 <%= link_to "編集する",edit_recommend_path(@recommend.id) %>
 <%= link_to "削除する",recommend_path(@recommend.id),method: :delete,"data-confirm"=>"削除しますか？" %>
 <% end %>
+
+<!--%= form_with(model:[@recommend, @recommend_comment],  url:recommend_recommend_comments_path,local: true) do |f| %>-->
+
+<!--<p>コメント-->
+<!--  %= f.text_field :recommend_comment %>-->
+<!--</p>-->
+<!--%= f.submit"コメントする" %>-->
+<!--% end %>-->
