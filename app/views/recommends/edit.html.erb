@@ -1,14 +1,43 @@
 <h1>おすすめ書籍編集画面</h1>
-<%= form_with model:@recommend , url:"/recommends/#{@recommend.id}", local:true do |f| %>
-<p>タイトル
-  <%= f.text_field :title %>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>著者</th>
+    <th>出版社</th>
+    <th>コメント</th>
+  </tr>
+  <%= form_with model:@recommend , url:"/recommends/#{@recommend.id}", local:true do |f| %>
+  <tr>
+    <td>
+      <%= f.text_field :title %>
+    </td>
+    <td>
+      <%= f.text_field :outher %>
+    </td>
+    <td>
+      <%= f.text_field :publisher %>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+</table>
+  <p>タイトル
+  
 </p>
-<p>著者
-  <%= f.text_field :outher %>
+
+<div>
+  <p>著者
+  
 </p>
-<p>出版社
-  <%= f.text_field :publisher %>
+</div>
+<div>
+  <p>出版社
+  
 </p>
+</div>
+
 <div>コメント
     <%= f.text_field :body %>
 </div>

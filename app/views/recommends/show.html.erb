@@ -3,4 +3,7 @@
 <%= @recommend.outher %>
 <%= @recommend.publisher %>
 <%= @recommend.body %>
+<% if @recommend.user == current_user %>
 <%= link_to "編集する",edit_recommend_path(@recommend.id) %>
+<%= link_to "削除する",recommend_path(@recommend.id),method: :delete,"data-confirm"=>"削除しますか？" %>
+<% end %>

@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :study_times
   has_many :recommends
+  has_many :recommend_comments
 end

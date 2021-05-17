@@ -28,6 +28,12 @@ class RecommendsController < ApplicationController
     redirect_to recommend_path(@recommend.id)
   end
 
+  def destroy
+    @recommend = Recommend.find(params[:id])
+    @recommend.delete
+    redirect_to recommends_path
+  end
+
   private
   def recommend_params
     params.require(:recommend).permit(:title,:outher,:publisher,:body)
