@@ -15,6 +15,7 @@ class RecommendsController < ApplicationController
   end
 
   def index
+    @recommends = Recommend.all.order(id: "DESC")
   end
 
   def edit
