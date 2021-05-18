@@ -21,5 +21,8 @@
 <% @recommend.recommend_comments.each do |recommend_comment| %>
   <%= recommend_comment.user.name %>
   <%= recommend_comment.created_at.strftime('%Y/%m/%d') %><%= recommend_comment.recommend_comment %>
+  <% if recommend_comment.user == current_user %>
+  <%= link_to"コメントを削除する", recommend_recommend_comment_path(recommend_comment.id),method: :delete,"data-confirm"=>"コメントを削除しますか？"%>
+  <% end %>
 <% end %>
 </div>

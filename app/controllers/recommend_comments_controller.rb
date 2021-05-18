@@ -9,6 +9,8 @@ class RecommendCommentsController < ApplicationController
   end
 
   def destroy
+    @recommend_comment = RecommendComment.find_by(id: params[:id], recommend_id: params[:recommend_id]).destroy
+    redirect_to recommend_path(params[:recommend_id])
   end
 
   private
