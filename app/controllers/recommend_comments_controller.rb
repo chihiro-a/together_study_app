@@ -1,10 +1,11 @@
 class RecommendCommentsController < ApplicationController
   def create
-    recommend = Recommend.find(params[:id])
-    recommend_comment = current_user.recommend_comments.new(recommend_comment_params)
-    recommend_comment.recommend_id = recommend.id
-    recommend_comment.save
-    redirect_to recommend_path(recommend)
+    @recommend = Recommend.find(params[:recommend_id])
+    @recommend_comment = current_user.recommend_comments.new(recommend_comment_params)
+    @recommend_comment.recommend_id = @recommend.id
+    @recommend_comment.save
+    redirect_to recommend_path(@recommend)
+    # 投稿詳細へリダイレクト
   end
 
   def destroy

@@ -8,10 +8,18 @@
 <%= link_to "削除する",recommend_path(@recommend.id),method: :delete,"data-confirm"=>"削除しますか？" %>
 <% end %>
 
-<!--%= form_with(model:[@recommend, @recommend_comment],  url:recommend_recommend_comments_path,local: true) do |f| %>-->
+<%= form_with(model:[@recommend, @recommend_comment], method: :post,local: true) do |f| %>
 
-<!--<p>コメント-->
-<!--  %= f.text_field :recommend_comment %>-->
-<!--</p>-->
-<!--%= f.submit"コメントする" %>-->
-<!--% end %>-->
+<p>コメント
+  <%= f.text_field :recommend_comment %>
+</p>
+  <%= f.submit"コメントする" %>
+<% end %>
+
+<div class="comments">
+<p>コメント件数：<%= @recommend.recommend_comments.count %></p>
+<% @recommend.recommend_comments.each do |recommend_comment| %>
+  <%= recommend_comment.user.name %>
+  <%= recommend_comment.created_at.strftime('%Y/%m/%d') %><%= recommend_comment.recommend_comment %>
+<% end %>
+</div>
