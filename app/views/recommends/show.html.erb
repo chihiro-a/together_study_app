@@ -8,8 +8,22 @@
 <%= link_to "削除する",recommend_path(@recommend.id),method: :delete,"data-confirm"=>"削除しますか？" %>
 <% end %>
 
-<%= form_with(model:[@recommend, @recommend_comment], method: :post,local: true) do |f| %>
+<% if @recommend.favorited_by?(current_user) %>
+    <p>
+     <%= link_to recommend_favorites_path(@recommend) ,method: :delete do %>
+     ♥<%= @recommend.favorites.count %> いいね
+     <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to recommend_favorites_path(@recommend), method: :post do %>
+        ♡<%= @recommend.favorites.count %> いいね
+      <% end %>
+    </p>
+<% end %>
 
+
+<%= form_with(model:[@recommend, @recommend_comment], method: :post,local: true) do |f| %>
 <p>コメント
   <%= f.text_field :recommend_comment %>
 </p>
