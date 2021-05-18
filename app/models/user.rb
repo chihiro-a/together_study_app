@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :study_times
   has_many :recommends
   has_many :recommend_comments
+  has_many :favorites
 end
