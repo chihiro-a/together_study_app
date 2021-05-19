@@ -34,6 +34,15 @@ class RecommendsController < ApplicationController
     @recommend.delete
     redirect_to recommends_path
   end
+    
+  def search
+    if params[:keyword].present?
+      @recommends = Recommend.where('title LIKE ?', "%#{params[:keyword]}%")
+    else
+      @recommends = Recommend.none
+    end
+  end
+  
 
   private
   def recommend_params

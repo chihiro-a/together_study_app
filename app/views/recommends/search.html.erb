@@ -1,0 +1,19 @@
+<h1>おすすめ書籍検索</h1>
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :keyword ,placeholder:"キーワードを入力"%>
+  <%= f.submit :search %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recommends.each do |recommend| %>
+      <tr>
+        <td><%= link_to recommend.title,recommend_path(recommend.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :recommend_comments, only: [:create, :destroy]
   end
-    
+
+  get 'search' => "recommends#search"
+
 end

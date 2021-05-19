@@ -8,19 +8,25 @@
 <%= link_to "削除する",recommend_path(@recommend.id),method: :delete,"data-confirm"=>"削除しますか？" %>
 <% end %>
 
-<% if @recommend.favorited_by?(current_user) %>
-    <p>
-     <%= link_to recommend_favorites_path(@recommend) ,method: :delete do %>
-     ♥<%= @recommend.favorites.count %> いいね
-     <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to recommend_favorites_path(@recommend), method: :post do %>
-        ♡<%= @recommend.favorites.count %> いいね
-      <% end %>
-    </p>
-<% end %>
+
+<div id="favorites_buttons_<%= @recommend.id %>">
+   <%= render partial: 'recommends/favorite', locals: { recommend: @recommend } %>
+</div>
+
+
+<!--% if @recommend.favorited_by?(current_user) %>-->
+<!--    <p>-->
+<!--     %= link_to recommend_favorites_path(@recommend) ,method: :delete ,remote: true do %>-->
+<!--     ♥%= @recommend.favorites.count %> いいね-->
+<!--     % end %>-->
+<!--    </p>-->
+<!--    % else %>-->
+<!--    <p>-->
+<!--      %= link_to recommend_favorites_path(@recommend), method: :post ,remote: true do %>-->
+<!--        ♡%= @recommend.favorites.count %> いいね-->
+<!--      % end %>-->
+<!--    </p>-->
+<!--% end %>-->
 
 
 <%= form_with(model:[@recommend, @recommend_comment], method: :post,local: true) do |f| %>
@@ -36,7 +42,7 @@
   <%= recommend_comment.user.name %>
   <%= recommend_comment.created_at.strftime('%Y/%m/%d') %><%= recommend_comment.recommend_comment %>
   <% if recommend_comment.user == current_user %>
-  <%= link_to"コメントを削除する", recommend_recommend_comment_path(recommend_comment.id),method: :delete,"data-confirm"=>"コメントを削除しますか？"%>
+  <%= link_to"コメントを削除する", "#{@recommend.id}/recommend_comments/#{recommend_comment.id}",method: :delete,"data-confirm"=>"コメントを削除しますか？"%>
   <% end %>
 <% end %>
 </div>
