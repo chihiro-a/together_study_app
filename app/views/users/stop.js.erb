@@ -1,0 +1,1 @@
+$('#is_active_buttons_<%= @user.id %>').html("<%= escape_javascript(render partial: 'users/is_active', locals: {user: @user}) %>");

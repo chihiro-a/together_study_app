@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :recommend_comments, only: [:create, :destroy]
   end
+  resources :users,only:[:show,:edit,:update]
+  patch 'users/:id/start' => 'users#start' ,as:'start'
+  patch 'users/:id/stop' => 'users#stop' ,as:'stop'
 
   get 'search' => "recommends#search"
 

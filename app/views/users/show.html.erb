@@ -1,0 +1,24 @@
+<h1>マイページ</h1>
+<%= @user.name %>
+<%= @user.introduction %>
+<%= attachment_image_tag @user, :profile_image, :fill, 60, 60%>
+<% if @user == current_user %>
+<%= link_to"会員情報編集",edit_user_path(@user.id) %>
+<% end %>
+
+<div id="is_active_buttons_<%= @user.id %>">
+   <%= render partial: 'users/is_active', locals: { user: @user } %>
+</div>
+
+
+
+<div>おすすめ書籍一覧
+    <% @recommends.each do |recommend| %>
+    <div>
+        <%= link_to recommend.title,recommend_path(recommend.id) %>
+    </div>
+    <% end %>
+</div>
+<div>つぶやき一覧
+
+</div>
