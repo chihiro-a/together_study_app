@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :users,only:[:show,:edit,:update,:index]
   patch 'users/:id/start' => 'users#start' ,as:'start'
   patch 'users/:id/stop' => 'users#stop' ,as:'stop'
-  # get 'users/studying' => 'users#studying' ,as:'studying'
+  resources :posts
+
 
   get 'search' => "recommends#search"
 
