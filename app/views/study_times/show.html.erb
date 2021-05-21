@@ -10,8 +10,10 @@
 <div>コメント
     <%= studey_time.comment %>
 </div>
+<% if @user == current_user %>
 <div>
     <%= link_to "編集する",edit_study_time_path(studey_time.id) %>
 </div>
+<% end %>
 
 <% end %>

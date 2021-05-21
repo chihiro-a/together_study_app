@@ -4,11 +4,11 @@ class UsersController < ApplicationController
     @study_times = @user.study_times
     @recommends = @user.recommends
   end
-  
+
   def edit
     @user = current_user
   end
-  
+
   def update
     @user = current_user
     @user.update(user_params)
@@ -18,15 +18,15 @@ class UsersController < ApplicationController
   def start
     @user = User.find(params[:id])
     @user.update(user_params)
-    # @user.save
-    # redirect_to user_path(@user)
   end
 
   def stop
     @user = User.find(params[:id])
     @user.update(user_params)
-    # @user.save
-    # redirect_to user_path(@user)
+  end
+
+  def index #勉強中ユーザ一覧
+    @users = User.where(is_active:true)
   end
 
   private

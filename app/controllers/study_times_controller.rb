@@ -14,8 +14,9 @@ class StudyTimesController < ApplicationController
     redirect_to study_times_path
   end
 
-  def index
-    @study_times = current_user.study_times
+  def show
+    @user = User.find(params[:id])
+    @study_times = @user.study_times
     d = Date.today
     today_times = StudyTime.where(year: d.year,month: d.month, date: d.mday)
     today_hour = today_times.all.sum(:hour) * 60

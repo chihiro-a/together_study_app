@@ -1,14 +1,23 @@
 <h1>マイページ</h1>
 <%= @user.name %>
 <%= @user.introduction %>
-<%= attachment_image_tag @user, :profile_image, :fill, 60, 60%>
+<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"no_image.jpg" %>
 <% if @user == current_user %>
 <%= link_to"会員情報編集",edit_user_path(@user.id) %>
 <% end %>
 
+<% if @user == current_user %>
 <div id="is_active_buttons_<%= @user.id %>">
    <%= render partial: 'users/is_active', locals: { user: @user } %>
 </div>
+<% else %>
+    <% if @user.is_active == true %>
+    <p><%= @user.name %>さんは勉強中です</p>
+    <% else %>
+    <p><%= @user.name%>さんは休憩中です</p>
+    <% end %>
+<% end%>
+
 
 
 
