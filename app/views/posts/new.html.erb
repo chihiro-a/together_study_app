@@ -1,6 +1,6 @@
 <h1>つぶやき投稿ページ</h1>
 <%= form_with model:@post , url:"/posts" , local:true do |f| %>
-<p>タイトル
+<p>
   <%= f.text_area :body , placeholder:"つぶやき" %>
 </p>
 <%= f.attachment_field :image, placeholder: "プロフィール画像" %>

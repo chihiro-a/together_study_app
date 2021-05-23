@@ -1,0 +1,14 @@
+<p>つぶやき詳細画面</p>
+<% if @post.user == current_user %>
+  <%= form_with model:@post , url:"/posts/#{@post.id}", local:true do |f| %>
+    <%= f.text_area :body %>
+    <%= f.attachment_field :image %>
+    <%= @post.created_at.strftime('%Y/%m/%d')%>
+    <%= f.submit"編集内容を登録する" %>
+  <% end %>
+  <%= link_to "削除する",post_path(@post.id),method: :delete,"data-confirm"=>"削除しますか？" %>
+<% else %>
+<%= @post.user.name %>
+<%= @post.body %>
+<%= @post.created_at.strftime('%Y/%m/%d')%>
+<% end %>
