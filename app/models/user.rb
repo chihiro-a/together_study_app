@@ -8,15 +8,28 @@ class User < ApplicationRecord
   has_many :recommend_comments
   has_many :favorites
   has_many :relationships
-  has_many :following, through: :relationships, source: :following #自分がフォローしている
-  has_many :followed, through: :relationships, source: :followed　#自分がフォローされている
+  has_many :follower, class_name:"Relationship", foreign_key: "following_id", dependent: :destroy #フォローする際必要な記述
+  has_many :followed, class_name:"Relationship", foreign_key: "followed_id", dependent: :destroy #フォローされる際必要な記述？
+  has_many :following_user, through: :follower, source: :followed #自分がフォローしている
+  has_many :followed_uesr, through: :followed, source: :follower #自分がフォローされている
   has_many :posts
 
   attachment :profile_image
 
-  def follow(other_user) #フォローする
-  unless self == other_user
-    self.relationships.find_or_create_by(follow_id: other_user.id)
+  def follow(user) #フォローする。other_user = paramsで取得するフォローしたいユーザー
+    # unless self == user #フォローしたい相手が自分ではないか？
+    #   follower.create(followed_id: user.id)
+    # end
+    follower.create(followed_id: user)
   end
-end
+
+  def unfollow(other_user) #フォローを外す
+    target_relationship = follower.find_by(followed_id: other_user)
+    target_relationship.destroy if target_relationship
+  end
+
+  def following?(user) #フォローしているかどうかの確認
+    following_user.include?(user)
+  end
+
 end

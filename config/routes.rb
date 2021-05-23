@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   patch 'users/:id/start' => 'users#start' ,as:'start'
   patch 'users/:id/stop' => 'users#stop' ,as:'stop'
   resources :posts
+  # resources :relationships,only:[:create, :destroy]
+
+  post 'follow/:id' => 'relationships#create', as: 'follow' # フォローする
+  post 'unfollow/:id' => 'relationships#destroy', as: 'unfollow' # フォロー外す
 
 
   get 'search' => "recommends#search"
