@@ -6,19 +6,13 @@
 <%= link_to"会員情報編集",edit_user_path(@user.id) %>
 <% end %>
 
+
+
 <% if @user != current_user %>
-    <% if current_user.following?(@user) %>
-
-        <%= link_to "フォローを外す",unfollow_path(@user),method: :delete %>
-    <% else %>
-        <%= link_to "フォローする",follow_path(@user),method: :post %>
-    <% end %>
-
+<div id="follow_buttons_<%= @user.id %>">
+   <%= render partial: 'users/relationship', locals: { user: @user } %>
+</div>
 <% end %>
-
-
-
-
 
 <% if @user == current_user %>
 <div id="is_active_buttons_<%= @user.id %>">

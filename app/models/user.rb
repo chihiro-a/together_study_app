@@ -17,14 +17,11 @@ class User < ApplicationRecord
   attachment :profile_image
 
   def follow(user) #フォローする。other_user = paramsで取得するフォローしたいユーザー
-    # unless self == user #フォローしたい相手が自分ではないか？
-    #   follower.create(followed_id: user.id)
-    # end
     follower.create(followed_id: user)
   end
 
-  def unfollow(other_user) #フォローを外す
-    target_relationship = follower.find_by(followed_id: other_user)
+  def unfollow(user) #フォローを外す
+    target_relationship = follower.find_by(followed_id: user)
     target_relationship.destroy if target_relationship
   end
 
