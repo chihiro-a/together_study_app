@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   root to: 'homes#top'
   get 'homes/about'
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
 
   post 'follow/:id' => 'relationships#create', as: 'follow' # フォローする
   delete 'unfollow/:id' => 'relationships#destroy', as: 'unfollow' # フォロー外す
+  
+  get 'follows' => 'follows#index', as:'follows'
+  get 'follows/timeline' => 'follows#timeline' ,as:'timeline'
 
 
   get 'search' => "recommends#search"
