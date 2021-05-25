@@ -1,10 +1,14 @@
 class StudyTime < ApplicationRecord
   belongs_to :user
-  # def today_time
-  #   d = Date.today
-  #   today_times = StudyTime.where(year: d.year,month: d.month, date: d.mday)
-  #   @today_hour = today_times.all.sum(:hour)
-  #   @today_min = today_times.all.sum(:min)
-  # end
-  # 使えない…↑
+
+  def daily_times
+    # hour = self.where(user_id: @user_id).group("year").group("month").group("date").all.sum(:hour))*60
+    # min = self.where(user_id: @user_id).group("year").group("month").group("date").all.sum(:min)
+    # return ((hour + min) / 60.0).floor(1)
+    #そのユーザの日毎のグルーピング
+    hour = self.where(user_id: @user_id).group("created_at").all.sum(:hour)*60
+    min = self.where(user_id: @user_id).group("created_at").all.sum(:min)
+    return ((hour + min) / 60.0).floor(1)
+  end
+
 end

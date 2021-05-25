@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   get 'homes/about'
-  resources :study_times,only:[:new,:create,:show,:update,:edit]
+  resources :study_times,only:[:new,:create,:show,:update,:edit,:destroy]
   resources :recommends do
     resource :favorites, only: [:create, :destroy]
     resources :recommend_comments, only: [:create, :destroy]

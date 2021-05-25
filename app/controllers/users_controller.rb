@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @study_times = @user.study_times
     @recommends = @user.recommends
+    @posts = @user.posts
   end
 
   def edit

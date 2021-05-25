@@ -33,9 +33,14 @@
     <% @recommends.each do |recommend| %>
     <div>
         <%= link_to recommend.title,recommend_path(recommend.id) %>
+        <%= recommend.favorites.count %>いいね
     </div>
     <% end %>
 </div>
 <div>つぶやき一覧
-
+    <% @posts.each do |post | %>
+    <div>
+        <%= post.body %>
+    </div>
+    <% end %>
 </div>

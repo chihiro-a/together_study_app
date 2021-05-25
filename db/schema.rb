@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_23_040647) do
+ActiveRecord::Schema.define(version: 2021_05_25_124147) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_040647) do
     t.integer "year"
     t.integer "month"
     t.integer "date"
-    t.integer "hour"
     t.integer "min"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
