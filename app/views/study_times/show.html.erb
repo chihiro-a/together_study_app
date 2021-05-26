@@ -1,10 +1,6 @@
 <h1>勉強時間一覧画面</h1>
-<h2>今日は<%= @total_min %>時間勉強しました</h2>
-<h2>今週は時間勉強しました</h2>
-<% @study_times.each do |studey_time| %>
-<%= studey_time.year %>年
-<%= studey_time.month %>月
-<%= studey_time.date %>日
+
+<% @all_study_times.each do |studey_time| %>
 <%= (studey_time.min/60.0).floor(1) %>時間
 <div>コメント
     <%= studey_time.comment %>
@@ -17,9 +13,8 @@
 <% end %>
 
 <% end %>
-
-<!--% @hour.each do |day , hour | %>-->
-<!--<p>勉強時間一覧</p>-->
-<!--%= hour*60 %>-->
-<!--% end %>-->
-
+<p>1日毎の集計</p>
+<% @daily_times.each do |date , min| %>
+<p><%= link_to (min/60.0).floor(1),daily_show_path(date) %>時間</p>
+<p><%= date %></p>
+<% end %>
