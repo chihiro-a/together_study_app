@@ -4,7 +4,9 @@
 <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"no_image.jpg" %>
 <% if @user == current_user %>
 <%= link_to"会員情報編集",edit_user_path(@user.id) %>
+<%= link_to "勉強時間登録" ,new_study_time_path %>
 <% end %>
+
 
 
 

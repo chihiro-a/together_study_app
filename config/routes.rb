@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about'
   resources :study_times,only:[:new,:create,:show,:update,:edit,:destroy]
-  get 'daily_show' => 'study_times#daily_show' ,as:'daily_show'
+  get 'study_time/:id' => 'study_times#daily_show' ,as:'daily_show'
   resources :recommends do
     resource :favorites, only: [:create, :destroy]
     resources :recommend_comments, only: [:create, :destroy]

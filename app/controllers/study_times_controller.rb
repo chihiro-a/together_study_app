@@ -18,12 +18,12 @@ class StudyTimesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @all_study_times = @user.study_times
-    @daily_times = StudyTime.where(user_id: @user.id).group("study_date").all.sum(:min)
+    @daily_times = StudyTime.where(user_id: @user.id).group("study_date").order("study_date DESC").all.sum(:min)
   end
 
   def daily_show
-    date = params[:format].to_s
-    @daily_study_details = StudyTime.where(study_date: date)
+    date = params[:id].to_s
+    @daily_study_details = StudyTime.where(user_id:current_user.id, study_date: date)
   end
 
   def edit
@@ -42,7 +42,7 @@ class StudyTimesController < ApplicationController
   def destroy
     @study_time = StudyTime.find(params[:id])
     @study_time.destroy
-    redirect_to study_time_path(current_user.id)
+    redirect_to daily_show_path(@study_time.study_date)
   end
 
   private

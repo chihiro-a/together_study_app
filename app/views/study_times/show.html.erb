@@ -1,20 +1,14 @@
 <h1>勉強時間一覧画面</h1>
 
-<% @all_study_times.each do |studey_time| %>
-<%= (studey_time.min/60.0).floor(1) %>時間
-<div>コメント
-    <%= studey_time.comment %>
-</div>
-<% if @user == current_user %>
-<div>
-    <%= link_to "編集する",edit_study_time_path(studey_time.id) %>
-    <%= link_to "削除する",study_time_path(studey_time.id),method: :delete %>
-</div>
-<% end %>
 
-<% end %>
+
 <p>1日毎の集計</p>
 <% @daily_times.each do |date , min| %>
-<p><%= link_to (min/60.0).floor(1),daily_show_path(date) %>時間</p>
+<% if @user == current_user %>
+<%= link_to (min/60.0).floor(1),daily_show_path(date) %>
 <p><%= date %></p>
+<% else %>
+<%= (min/60.0).floor(1) %>時間
+<p><%= date %></p>
+<% end %>
 <% end %>
