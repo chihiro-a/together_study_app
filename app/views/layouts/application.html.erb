@@ -10,36 +10,43 @@
   </head>
 
   <body>
-    <header>
-       <% if user_signed_in? %>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-        <li>
-          <%= link_to "マイページ", user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "みんなのおすすめ書籍", recommends_path %>
-        </li>
-        <li>
-          <%= link_to "フォローユーザ" ,timeline_path %>
-        </li>
-        <li>
-          <%= link_to "ランキング",weekly_ranking_path %>
-        </li>
-        <li>
-          <%= link_to "勉強中" ,users_path %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-      <% end %>
-    </header>
+    <div class="container p-2">
 
-    <%= yield %>
+
+      <header>
+         <% if user_signed_in? %>
+          <li>
+            <%= link_to root_path , method: :get do %>
+              <%= image_tag('logo.jpg') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+          <li>
+            <%= link_to "マイページ", user_path(current_user.id) %>
+          </li>
+          <li>
+            <%= link_to "みんなのおすすめ書籍", recommends_path %>
+          </li>
+          <li>
+            <%= link_to "フォローユーザ" ,timeline_path %>
+          </li>
+          <li>
+            <%= link_to "ランキング",weekly_ranking_path %>
+          </li>
+          <li>
+            <%= link_to "勉強中" ,users_path %>
+          </li>
+        <% else %>
+          <%= link_to root_path , method: :get do %>
+            <%= image_tag('logo.jpg') %>
+          <% end %>
+        <% end %>
+      </header>
+
+      <%= yield %>
+
+    </div>
   </body>
 </html>

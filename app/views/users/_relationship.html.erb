@@ -2,13 +2,13 @@
    <% if current_user.following?(user) %>
        <p>
          <%= link_to unfollow_path(user) ,method: :delete ,remote: true do %>
-         <i class="fas fa-heart favorite"></i><span class="favorite"><span>フォローを外す</span></span>
+         <span class="btn btn-primary">フォローを外す</span>
          <% end %>
        </p>
     <% else %>
        <p>
          <%= link_to follow_path(user) ,method: :post ,remote: true do %>
-         <i class="fas fa-heart favorite"></i><span class="favorite"><span>フォローをする</span></span>
+        <span class="btn btn-outline-primary">フォローする</span>
          <% end %>
        </p>
     <% end %>

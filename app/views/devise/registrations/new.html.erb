@@ -8,13 +8,13 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="row sign-up-field">
     <div class="col text-center">
-      <div class="field po">
+      <div class="field">
         <!--%= f.label :name ,"なまえ"%><br />-->
         <%= f.text_field :name, autofocus: true,placeholder:"ユーザ名" %>
       </div>
     </div>
   </div>
-    <div class="row sign-up-field">
+    <div class="row sign-field">
       <div class="col text-center">
         <div class="field">
           <!--%= f.label :email %><br />-->
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="row sign-up-field">
+    <div class="row sign-field">
       <div class="col text-center">
         <div class="field">
           <!--%= f.label :password %>-->
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="row sign-up-field">
+    <div class="row sign-field">
       <div class="col text-center">
         <div class="field">
           <!--%= f.label :password_confirmation %><br />-->
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="row sign-up-field">
+    <div class="row sign-field">
       <div class="col text-center">
         <div class="actions">
           <%= f.submit "新規登録" ,class:"btn btn-success" %>
@@ -51,10 +51,10 @@
   </div>
   <% end %>
 
-  <div class="row sign-up-field">
+  <div class="row sign-field">
     <div class="col text-center">
       <!--%= render "devise/shared/links" %>-->
-      登録済みユーザは<%= link_to "ここ", new_user_session_path %>からログイン
+      登録済みユーザは<%= link_to "ここ", new_user_session_path, class:"no-underline" %>からログイン
     </div>
   </div>
 

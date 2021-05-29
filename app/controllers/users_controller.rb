@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @study_times = @user.study_times
     @recommends = @user.recommends
     @posts = @user.posts
+    @users = User.where(is_active:true).limit(3)
   end
 
   def edit

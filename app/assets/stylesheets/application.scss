@@ -25,7 +25,7 @@
  text-decoration:none !important;
 }
 
-.sign-up-field{
+.sign-field{
  padding: 10px;
 }
 
@@ -43,4 +43,21 @@ input[type="email"] {
 input[type="password"] {
  width: 300px;
  height: 40px;
+}
+
+.profile{
+ width: 70%;
+ text-align: center;
+}
+
+.profile-image{
+ padding: 20px;
+}
+
+.btn, .post{
+ display: inline-block;
+}
+
+.post-img{
+ vertical-align: top;
 }
