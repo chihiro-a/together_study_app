@@ -20,3 +20,27 @@
 .favorite {
  color:pink;
 }
+
+.no-underline{
+ text-decoration:none !important;
+}
+
+.sign-up-field{
+ padding: 10px;
+}
+
+
+input[type="text"] {
+ width: 300px;
+ height: 40px;
+}
+
+input[type="email"] {
+ width: 300px;
+ height: 40px;
+}
+
+input[type="password"] {
+ width: 300px;
+ height: 40px;
+}

@@ -1,2 +1,25 @@
-<h1>トップページ</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h1>ようこそ、TOGETHER STUDYへ！</h1>
+    </div>
+  </div>
+  <div class="row">
+    <dov class="col text-center">
+      <p>TOGETHER STUDYは、受験生のためのSNSです。</p>
+    </dov>
+  </div>
+  <div class="row">
+    <dov class="col text-center">
+      <%= link_to "アカウント作成", new_user_registration_path,class:"btn btn-success" %>
+      <%= link_to "ログイン", new_user_session_path,class:"btn btn-success" %>
+    </dov>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to "このサイトについて", about_path, class:"no-underline" %>
+    </div>
+  </div>
+</div>
+
+
