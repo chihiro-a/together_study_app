@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @study_times = @user.study_times
-    @recommends = @user.recommends
-    @posts = @user.posts
+    @recommends = @user.recommends.page(params[:page]).reverse_order.per(10)
     @users = User.where(is_active:true).limit(3)
+    @posts = @user.posts.page(params[:page]).reverse_order.per(5)
   end
 
   def edit

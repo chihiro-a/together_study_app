@@ -45,6 +45,11 @@ input[type="password"] {
  height: 40px;
 }
 
+textarea {
+    resize: horizontal;
+    width: 300px;
+}
+
 .profile{
  width: 70%;
  text-align: center;
@@ -54,10 +59,15 @@ input[type="password"] {
  padding: 20px;
 }
 
-.btn, .post{
+.btn, .inline-block{
  display: inline-block;
 }
 
 .post-img{
  vertical-align: top;
+}
+
+.introduction{
+ display: flex;
+ align-items: center;
 }
