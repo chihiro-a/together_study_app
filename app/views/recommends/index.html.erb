@@ -1,14 +1,10 @@
-<h1>おすすめ書籍一覧画面</h1>
-
 <div class="search-form">
     <p>おすすめ書籍内から検索</p>
   <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword ,placeholder:"キーワード検索"%>
+    <%= f.text_field :keyword, value: @keyword ,placeholder:"タイトル検索"%>
     <%= f.submit "検索" %>
   <% end %>
 </div>
-
-
 
 <table>
     <tr>
@@ -17,11 +13,12 @@
         <th>出版社</th>
         <th>コメント</th>
         <th>投稿者</th>
+        <th></th>
     </tr>
     <% @recommends.each do |recommend| %>
     <tr>
         <td>
-            <%= link_to recommend.title,recommend_path(recommend.id) %>
+            <%= link_to recommend.title,recommend_path(recommend.id), class:"no-underline" %>
         </td>
         <td>
             <%= recommend.outher %>
@@ -34,6 +31,9 @@
         </td>
         <td>
             <%= recommend.user.name %>
+        </td>
+        <td>
+            <i class="fas fa-heart favorite"></i><span class="favorite"><%= recommend.favorites.count %>
         </td>
 
     </tr>

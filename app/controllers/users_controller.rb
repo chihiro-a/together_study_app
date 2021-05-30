@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @study_times = @user.study_times
     @recommends = @user.recommends.page(params[:page]).reverse_order.per(10)
-    @users = User.where(is_active:true).limit(3)
+    @studying_users = User.where(is_active:true).limit(3).order(updated_at: "DESC")
     @posts = @user.posts.page(params[:page]).reverse_order.per(5)
   end
 
@@ -18,17 +18,17 @@ class UsersController < ApplicationController
   end
 
   def start
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
   end
 
   def stop
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
   end
 
-  def index #勉強中ユーザ一覧
-    @users = User.where(is_active:true)
+  def index
+    @studying_users = User.where(is_active: true).order(updated_at: "DESC")
   end
 
   private

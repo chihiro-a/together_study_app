@@ -1,8 +1,19 @@
-<h1>つぶやき投稿ページ</h1>
-<%= form_with model:@post , url:"/posts" , local:true do |f| %>
-<p>
-  <%= f.text_area :body , placeholder:"つぶやき" %>
-</p>
-<%= f.attachment_field :image, placeholder: "プロフィール画像" %>
-<%= f.submit"つぶやく",class:"btn btn-success" %>
-<% end %>
+
+<div class="text-center">
+  <h3>ひとりごとを言う</h3>
+  <%= form_with model:@post , url:"/posts" , local:true do |f| %>
+  <div>
+    <%= f.text_area :body , placeholder:"ひとりごと", class:"text-area" %>
+  </div>
+
+  <div>
+    <%= f.attachment_field :image, placeholder: "プロフィール画像" %>
+  </div>
+
+  <div>
+    <%= f.submit"つぶやく",class:"btn btn-success post-btn" %>
+  </div>
+  <% end %>
+</div>
+
+

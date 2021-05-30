@@ -21,8 +21,13 @@
  color:pink;
 }
 
-.no-underline{
- text-decoration:none !important;
+.no-underline {
+ text-decoration: none !important;
+ color: #0bd;
+}
+
+.no-underline :hover {
+ color: #0090aa;
 }
 
 .sign-field{
@@ -50,7 +55,8 @@ textarea {
     width: 300px;
 }
 
-.profile{
+// これなに？？↓
+.profile {
  width: 70%;
  text-align: center;
 }
@@ -70,4 +76,85 @@ textarea {
 .introduction{
  display: flex;
  align-items: center;
+}
+
+.card {
+  width: 350px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card-img {
+  max-width: 340px;
+  height: auto;
+  margin: 0 auto 5px auto;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.card-text {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.card-link {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 20px;
+}
+
+.card-link a {
+  text-decoration: none;
+  color: #0bd;
+  margin: 0 10px;
+}
+
+.card-link a:hover {
+  color: #0090aa;
+}
+
+.user-image {
+ max-width: 40px;
+}
+
+.text-area {
+ height: 150px;
+}
+
+.post-btn {
+ margin-top: 10px;
+}
+
+.book-title {
+ max-width: 100%;
+}
+
+.card {
+  width: 350px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.recommend-info {
+ color: #808080;
+}
+
+.card-recommend {
+ width: 100%;
 }

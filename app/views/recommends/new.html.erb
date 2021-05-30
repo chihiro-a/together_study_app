@@ -1,16 +1,18 @@
-<h1>おすすめ書籍投稿画面</h1>
-<%= form_with model:@recommend , url:"/recommends" , local:true do |f| %>
-<p>タイトル
-  <%= f.text_field :title %>
-</p>
-<p>著者
-  <%= f.text_field :outher %>
-</p>
-<p>出版社
-  <%= f.text_field :publisher %>
-</p>
-<div>コメント
-    <%= f.text_field :body %>
+
+<div class="text-center">
+  <%= form_with model:@recommend , url:"/recommends" , local:true do |f| %>
+    <p>
+      <%= f.text_field :title, placeholder:"タイトル" %>
+    </p>
+    <p>
+      <%= f.text_field :outher, placeholder:"著者" %>
+    </p>
+    <p>
+      <%= f.text_field :publisher, placeholder:"出版社" %>
+    </p>
+    <div>
+        <%= f.text_area :body, placeholder:"コメント",class:"text-area" %>
+    </div>
+  <%= f.submit"登録する", class:"btn btn-success post-btn" %>
+  <% end %>
 </div>
-<%= f.submit"登録する" %>
-<% end %>
