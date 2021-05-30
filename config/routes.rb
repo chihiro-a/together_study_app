@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'homes#top'
-  get 'homes/about' => 'homes#about', as:'about'
+  get 'homes/about' => 'homes#about', as:'aboutcd'
   resources :study_times,only:[:new,:create,:show,:update,:edit,:destroy]
   get 'study_time/:id' => 'study_times#daily_show' ,as:'daily_show'
   resources :recommends do

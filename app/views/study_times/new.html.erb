@@ -1,10 +1,20 @@
 <h1>勉強時間登録画面</h1>
-<p>最終的にはこのページ無くしてマイページから直接時間登録できるようにしたい</p>
-<%= form_with model:@study_time , url:"/study_times", local:true do |f| %>
-<p>タイトル
-<%= f.text_field :hour %>時間<%= f.text_field :min %>分
-<div>コメント
-    <%= f.text_field :comment %>
-</div>
-<%= f.submit"登録する" %>
-<% end %>
+
+  <div class="study-time">
+  <%= form_with model:@study_time , url:"/study_times", local:true do |f| %>
+    <div class="text-left">
+      <%= f.text_field :hour, class:"input-studytime" %>時間
+    </div>
+    <div class="text-left">
+      <%= f.text_field :min, class:"input-studytime" %>分
+    </div>
+    <div  class="text-left">
+      <%= f.text_field :comment,placeholder:"コメント" %>
+    </div>
+    <div class="text-center">
+      <%= f.submit"登録する",class:"btn btn-success post-btn"  %>
+    </div>
+    <% end %>
+  </div>
+
+
