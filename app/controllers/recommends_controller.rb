@@ -34,7 +34,7 @@ class RecommendsController < ApplicationController
     @recommend.delete
     redirect_to recommends_path
   end
-    
+
   def search
     if params[:keyword].present?
       @recommends = Recommend.where('title LIKE ?', "%#{params[:keyword]}%")
@@ -42,7 +42,13 @@ class RecommendsController < ApplicationController
       @recommends = Recommend.none
     end
   end
-  
+
+  def rakuten_search
+    if params[:keyword]
+      @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
+    end
+  end
+
 
   private
   def recommend_params

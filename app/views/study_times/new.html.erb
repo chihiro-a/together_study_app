@@ -3,10 +3,10 @@
   <div class="study-time">
   <%= form_with model:@study_time , url:"/study_times", local:true do |f| %>
     <div class="text-left">
-      <%= f.text_field :hour, class:"input-studytime" %>時間
+      <%= f.text_field :hour, class:"input-studytime", placeholder:"半角入力" %>時間
     </div>
     <div class="text-left">
-      <%= f.text_field :min, class:"input-studytime" %>分
+      <%= f.text_field :min, class:"input-studytime", placeholder:"半角入力" %>分
     </div>
     <div  class="text-left">
       <%= f.text_field :comment,placeholder:"コメント" %>

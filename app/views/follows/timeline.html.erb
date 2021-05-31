@@ -8,12 +8,7 @@
         </div>
         <div class="col-sm-6">
             <p>タイムライン</p>
-            <% @posts.each do |post| %>
-            <div>
-                <%= post.body %>
-                <%= post.user.name %>
-            </div>
-            <% end %>
+            <%= render partial: 'posts/post_index' %>
         </div>
     </div>
 </div>

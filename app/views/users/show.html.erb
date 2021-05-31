@@ -22,6 +22,9 @@
                     <% end %>
                  <% end %>
              </div>
+             <div class="btn">
+                 <%= link_to "勉強時間をみる" ,study_time_path(@user.id), class:"btn btn-secondary" %>
+             </div>
              <% if @user == current_user %>
                 <div id="is_active_buttons_<%= @user.id %>" class="btn">
                     <%= render partial: 'users/is_active', locals: { user: @user } %>
@@ -79,20 +82,7 @@
     </div>
     <div class="col-lg-6">
         <div>ひとりごと一覧
-            <% @posts.each do | post | %>
-            <div class="border-bottom pb-4 pt-4">
-                <div class="inline-block post-img">
-                    <%= attachment_image_tag post.user, :profile_image, :fill, 100, 100, fallback:"no_image.jpg", class:"mt-3 rounded-circle border" %>
-                </div>
-                <div class="inline-block">
-                    <%= link_to post.user.name,user_path(post.user.id), class:"no-underline" %>
-                    <%= post.created_at.strftime("%Y/%m/%e %H:%M") %></br>
-                    <%= post.body %></br>
-                    <%= attachment_image_tag post, :image, :fill, 200, 200 %>
-                </div>
-            </div>
-            <% end %>
-            <%= paginate @posts %>
+        <%= render partial: 'posts/post_index' %>
         </div>
     </div>
 </div>

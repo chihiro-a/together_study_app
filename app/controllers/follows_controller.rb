@@ -5,6 +5,6 @@ class FollowsController < ApplicationController
 
   def timeline
     @follow_users = current_user.following_user
-    @posts = Post.where(user_id:@follow_users).order(created_at: "DESC")
+    @posts = Post.where(user_id:@follow_users).page(params[:page]).order(created_at: "DESC").per(10)
   end
 end

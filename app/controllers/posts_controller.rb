@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.reverse_order
+    @posts = Post.all.page(params[:page]).reverse_order.per(5)
   end
 
   private

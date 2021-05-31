@@ -10,11 +10,14 @@
   </head>
 
   <body>
-    <div class="container p-2">
+   
 
 
       <header>
          <% if user_signed_in? %>
+         <nav>
+           
+         </nav>
           <li>
             <%= link_to root_path , method: :get do %>
               <%= image_tag('logo.jpg') %>
@@ -41,6 +44,9 @@
           <li>
             <%= link_to "勉強中" ,users_path %>
           </li>
+          <li>
+            <%= link_to "ひとりごと一覧", posts_path %>
+          </li>
         <% else %>
           <%= link_to root_path , method: :get do %>
             <%= image_tag('logo.jpg') %>
@@ -50,6 +56,5 @@
 
       <%= yield %>
 
-    </div>
   </body>
 </html>

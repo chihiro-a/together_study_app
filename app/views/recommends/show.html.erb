@@ -1,5 +1,3 @@
-
-
 <div class="card card-recommend">
   <div class="card-content">
     <h1 class="card-title">『<%= @recommend.title %>』</h1>
@@ -26,6 +24,12 @@
     <%= link_to "削除する",recommend_path(@recommend.id), class:"no-underline", method: :delete,"data-confirm"=>"削除しますか？" %>
   <% end %>
 </div>
+
+
+  <%= render partial: 'recommends/rakuten_search' %>
+
+
+
 
 <%= form_with(model:[@recommend, @recommend_comment], method: :post,local: true) do |f| %>
   <p class="pt-3">

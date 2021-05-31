@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'homes#top'
-  get 'homes/about' => 'homes#about', as:'aboutcd'
+  get 'homes/about' => 'homes#about', as:'about'
   resources :study_times,only:[:new,:create,:show,:update,:edit,:destroy]
   get 'study_time/:id' => 'study_times#daily_show' ,as:'daily_show'
   resources :recommends do
@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :posts_comments, only: [:create, :destroy]
   end
-  # resources :relationships,only:[:create, :destroy]
 
   post 'follow/:id' => 'relationships#create', as: 'follow' # フォローする
   delete 'unfollow/:id' => 'relationships#destroy', as: 'unfollow' # フォロー外す
@@ -26,6 +25,7 @@ Rails.application.routes.draw do
   get 'weekly' => 'rankings#weekly' ,as:'weekly_ranking'
 
 
-  get 'search' => "recommends#search"
+  get 'search' => 'recommends#search'
+  get 'search/rakuten' => 'recommends#rakuten_search', as:'rakuten_search'
 
 end
