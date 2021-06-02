@@ -1,16 +1,5 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <h1>フォローユーザ一覧画面</h1>
-            <% @follow_users.each do |follow_user| %>
-            <%= link_to follow_user.name, user_path(follow_user.id) %>
-            <% end %>
-        </div>
-        <div class="col-sm-6">
-            <p>タイムライン</p>
-            <%= render partial: 'posts/post_index' %>
-        </div>
-    </div>
+<div>
+    <%= render partial: 'posts/post_index' %>
 </div>
 
 

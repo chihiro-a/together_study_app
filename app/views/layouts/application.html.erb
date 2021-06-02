@@ -5,53 +5,65 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-   
-
-
-      <header>
-         <% if user_signed_in? %>
-         <nav>
-           
-         </nav>
-          <li>
-            <%= link_to root_path , method: :get do %>
+    <header>
+         <nav  class="navbar navbar-expand-lg navbar-light">
+           <div class="container">
+             <%= link_to root_path , method: :get do %>
               <%= image_tag('logo.jpg') %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
-          <li>
-            <%= link_to "マイページ", user_path(current_user.id) %>
-          </li>
-          <li>
-            <%= link_to "みんなのおすすめ書籍", recommends_path %>
-          </li>
-          <li>
-            <%= link_to "書籍投稿", new_recommend_path %>
-          </li>
-          <li>
-            <%= link_to "フォローユーザ" ,timeline_path %>
-          </li>
-          <li>
-            <%= link_to "ランキング",weekly_ranking_path %>
-          </li>
-          <li>
-            <%= link_to "勉強中" ,users_path %>
-          </li>
-          <li>
-            <%= link_to "ひとりごと一覧", posts_path %>
-          </li>
-        <% else %>
-          <%= link_to root_path , method: :get do %>
-            <%= image_tag('logo.jpg') %>
-          <% end %>
-        <% end %>
+             <% end %>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarNavDropdown">
+               <ul class="navbar-nav ml-auto">
+                 <% if user_signed_in? %>
+                 <li class="header-list">
+                   <%= link_to user_path(current_user.id), method: :get do%>
+                     <i class="far fa-user-circle"></i>マイページ
+                   <% end %>
+                 </li>
+                 <li class="header-list">
+                    <%= link_to recommends_path, method: :get do %>
+                      <i class="fas fa-book-open"></i>書籍一覧
+                    <% end %>
+                  </li>
+                  <li class="header-list">
+                    <%= link_to follows_path, method: :get do %>
+                      <i class="fas fa-users"></i>フォローユーザ
+                    <% end %>
+                  </li>
+                  <li class="header-list">
+                    <%= link_to users_path, method: :get do %>
+                      <i class="fas fa-pencil-alt"></i>勉強中
+                    <% end %>
+                  </li>
+                  <li class="header-list">
+                    <%= link_to weekly_ranking_path, method: :get do %>
+                      <i class="fas fa-crown"></i>ランキング
+                    <% end %>
+                  </li>
+                  <li class="header-list">
+                    <%= link_to timeline_path, method: :get do %>
+                      <i class="far fa-comment-dots"></i>ひとりごと
+                    <% end %>
+                  </li>
+                  <li class="header-list">
+                   <%= link_to destroy_user_session_path, method: :delete do %>
+                   <i class="fas fa-sign-out-alt"></i>ログアウト
+                   <% end %>
+                 </li>
+                  <% end %>
+               </ul>
+             </div>
+           </div>
+         </nav>
       </header>
 
       <%= yield %>

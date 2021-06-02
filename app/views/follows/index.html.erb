@@ -1,4 +1,23 @@
-<h1>フォローユーザ一覧画面</h1>
-<% @follow_users.each do |follow_user| %>
-<%= link_to follow_user.name, user_path(follow_user.id) %>
-<% end %>
+<div class="container">
+<div class="text-center">
+  <h1>フォローユーザ一覧</h1>
+</div>
+    <% @follow_users.each do |user| %>
+    <div class="studying-users">
+      <div class="row w-70 border-bottom">
+        <div class="col-3">
+          <%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback:"no_image.jpg", class:"mt-3 rounded-circle border" %>
+          <%= link_to user.name,user_path(user.id) %>
+          <% if user != current_user %>
+            <div id="follow_buttons_<%= user.id %>" >
+              <%= render partial: 'users/relationship', locals: { user: user } %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-7 introduction">
+          <%= user.introduction %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>

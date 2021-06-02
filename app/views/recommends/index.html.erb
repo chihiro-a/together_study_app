@@ -1,54 +1,59 @@
-<div class="search-form inline-block">
-    <p>おすすめ書籍内から検索</p>
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword ,placeholder:"タイトル検索" %>
-    <%= f.submit "検索" %>
-  <% end %>
+<div class="text-center p-5">
+    <%= link_to "書籍新規登録" ,new_recommend_path ,class:"btn btn-success" %>
 </div>
 
-<div class="search-form inline-block">
-    <p>楽天市場で検索</p>
-        <%= form_tag :rakuten_search, method: :get do  %>
-          <%= text_field_tag 'keyword', params[:keyword],placeholder:"タイトル検索" %>
-          <%= submit_tag "検索" %>
+<div class="container">
+    <div class="search-form inline-block">
+        <p>おすすめ書籍内から検索</p>
+          <%= form_with url: search_path, method: :get, local: true do |f| %>
+            <%= f.text_field :keyword, value: @keyword ,placeholder:"タイトル検索" %>
+            <%= f.submit "検索" %>
+          <% end %>
+    </div>
+
+    <div class="search-form inline-block">
+        <p>楽天市場で検索</p>
+            <%= form_tag :rakuten_search, method: :get do  %>
+              <%= text_field_tag 'keyword', params[:keyword],placeholder:"タイトル検索" %>
+              <%= submit_tag "検索" %>
+            <% end %>
+    </div>
+
+
+    <table class="recommend-list">
+        <tr>
+            <th>タイトル</th>
+            <th>著者</th>
+            <th>出版社</th>
+            <th>コメント</th>
+            <th>投稿者</th>
+            <th></th>
+        </tr>
+        <% @recommends.each do |recommend| %>
+        <tr>
+            <td>
+                <%= link_to recommend.title,recommend_path(recommend.id), class:"no-underline" %>
+            </td>
+            <td>
+                <%= recommend.outher %>
+            </td>
+            <td>
+                <%= recommend.publisher %>
+            </td>
+            <td>
+                <%= recommend.body %>
+            </td>
+            <td>
+                <%= recommend.user.name %>
+            </td>
+            <td>
+                <i class="fas fa-heart favorite"></i><span class="favorite"><%= recommend.favorites.count %>
+            </td>
+
+        </tr>
         <% end %>
+    </table>
 </div>
-
-
-<table class="recommend-list">
-    <tr>
-        <th>タイトル</th>
-        <th>著者</th>
-        <th>出版社</th>
-        <th>コメント</th>
-        <th>投稿者</th>
-        <th></th>
-    </tr>
-    <% @recommends.each do |recommend| %>
-    <tr>
-        <td>
-            <%= link_to recommend.title,recommend_path(recommend.id), class:"no-underline" %>
-        </td>
-        <td>
-            <%= recommend.outher %>
-        </td>
-        <td>
-            <%= recommend.publisher %>
-        </td>
-        <td>
-            <%= recommend.body %>
-        </td>
-        <td>
-            <%= recommend.user.name %>
-        </td>
-        <td>
-            <i class="fas fa-heart favorite"></i><span class="favorite"><%= recommend.favorites.count %>
-        </td>
-
-    </tr>
-    <% end %>
-</table>
-
 
 
 
