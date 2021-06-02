@@ -16,6 +16,12 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ 
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .favorite {
  color:pink;
@@ -202,4 +208,50 @@ textarea {
 
 .header-list {
  padding: 5px;
+}
+
+.ranking-table {
+ margin: 0 auto;
+}
+
+#tab-menu {
+  display: flex;
+}
+
+#tab-menu li {
+  list-style-type: none;
+  width: 50%;
+}
+
+#tab-menu li a {
+ display: block;
+ padding: 20px;
+ text-align: center;
+ border-bottom: none;
+}
+
+#tab-menu .active {
+ pointer-events: none;
+ color: black;
+}
+
+#tab-contents {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#tab-contents .tab {
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  border-top: none;
+}
+
+#tab-contents p {
+  color: #000;
+  line-height: 2.5;
+}
+
+.tab1 {
+ border-bottom: 1px solid red;
 }

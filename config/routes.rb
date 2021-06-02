@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'follows' => 'follows#index', as:'follows'
   get 'follows/timeline' => 'follows#timeline' ,as:'timeline'
 
-  get 'weekly' => 'rankings#weekly' ,as:'weekly_ranking'
+  get 'weekly' => 'rankings#ranking' ,as:'ranking'
 
 
   get 'search' => 'recommends#search'
