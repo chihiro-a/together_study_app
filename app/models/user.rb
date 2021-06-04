@@ -16,6 +16,8 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
+  validates :name, presence: true
+
   def follow(user) #フォローする。other_user = paramsで取得するフォローしたいユーザー
     follower.create(followed_id: user)
   end

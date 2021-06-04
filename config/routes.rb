@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users, only:[:show,:edit,:update,:index]
   patch 'users/:id/start' => 'users#start' ,as:'start'
   patch 'users/:id/stop' => 'users#stop' ,as:'stop'
-  resources :posts, except: :show  do
+  resources :posts, except:[:show, :index]do
     resources :posts_comments, only: [:create, :destroy]
   end
 

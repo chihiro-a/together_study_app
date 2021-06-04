@@ -9,22 +9,28 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     user = current_user
     @post.user_id = user.id
-    @post.save
-    flash[:notice] = "ひとりごとを言いました"
-    redirect_to user_path(user)
+    if @post.save
+      flash[:notice] = "ひとりごとを言いました"
+      redirect_to user_path(user)
+    else
+      render new_post_path
+    end
   end
 
   def edit
     @post = Post.find(params[:id])
     if @post.user != current_user
-      redirect_to posts_path
+      redirect_to user_path(user)
     end
   end
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to posts_path
+    if @post.update(post_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def destroy

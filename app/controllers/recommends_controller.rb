@@ -8,9 +8,12 @@ class RecommendsController < ApplicationController
   def create
     @recommend = Recommend.new(recommend_params)
     @recommend.user_id = current_user.id
-    @recommend.save
-    flash[:notice] = "投稿が完了しました。"
-    redirect_to recommend_path(@recommend.id)
+    if @recommend.save
+      flash[:notice] = "投稿が完了しました。"
+      redirect_to recommend_path(@recommend.id)
+    else
+      render :new
+    end
   end
 
   def show

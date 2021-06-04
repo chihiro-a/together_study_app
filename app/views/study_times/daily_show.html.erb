@@ -4,16 +4,16 @@
   </div>
   <table class="times-table">
     <tr>
-      <th class="rank"></th>
-      <th class="rank-user-name"></th>
-      <th class="rank-hour"></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
     <% @daily_study_details.each do |daily_study_detail| %>
-    <tr>
+    <tr class="border-bottom">
       <td>
          <%= daily_study_detail.comment %>
       </td>
-      <td>
+      <td class="p-4">
         <%= (daily_study_detail.min/60.0).floor(2) %>時間
       </td>
       <td>

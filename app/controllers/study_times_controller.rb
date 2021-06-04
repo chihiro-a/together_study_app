@@ -11,8 +11,11 @@ class StudyTimesController < ApplicationController
     hour = (params[:study_time][:hour].to_i)*60
     min = params[:study_time][:min]
     @study_time.min = hour.to_i + min.to_i
-    @study_time.save
-    redirect_to study_time_path(current_user.id)
+    if @study_time.save
+      redirect_to study_time_path(current_user.id)
+    else
+      render :new
+    end
   end
 
   def show

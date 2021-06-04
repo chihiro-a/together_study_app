@@ -1,5 +1,17 @@
 
 <div class="text-center">
+  <div class="errors">
+    <% if @recommend.errors.any? %>
+      <%= @recommend.errors.count %>件のエラーが発生しました
+      <% @recommend.errors.full_messages.each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
   <%= form_with model:@recommend , url:"/recommends" , local:true do |f| %>
     <p>
       <%= f.text_field :title, placeholder:"タイトル" %>
