@@ -16,7 +16,7 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- 
+
  * {
   margin: 0;
   padding: 0;
@@ -186,15 +186,14 @@ textarea {
  margin: 0 auto;
 }
 
-
 .pagination {
   justify-content: center;
 }
 
 .top {
  background-image: url(top-img.jpg);
- width: 100%;
- height: 500px;
+ width: auto;
+ height: 700px;
  background-size: cover;
 }
 
@@ -202,8 +201,22 @@ textarea {
  color: white;
 }
 
-.navbar-toggler-icon {
- background-image: url(menu.jpg);
+.hamburger-icon {
+  background-image: url(menu.jpg);
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+}
+
+.hamburger-icon.active {
+  background-image: url(close.jpg);
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+}
+
+.box1-ext {
+  border: 10px solid black;
 }
 
 .header-list {
@@ -212,7 +225,34 @@ textarea {
 
 .ranking-table {
  margin: 0 auto;
+ width: 350px;
+ border-collapse: collapse;
 }
+
+.ranking-table th, .ranking-table td {
+ border: solid 1px black;
+}
+
+.ranking-table th{
+ background-color: #b0c4de;
+}
+
+.rank {
+ width: 50px;
+}
+
+.rank-user-name {
+ width: 200px;
+}
+
+.rank-hour {
+ width: 100px;
+}
+
+.times-table {
+ margin: 0 auto;
+}
+
 
 #tab-menu {
   display: flex;

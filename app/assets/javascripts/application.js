@@ -30,3 +30,9 @@ $('#tab-menu a').on('click', function(event) {
   event.preventDefault();
 });
 });
+
+$(document).on('turbolinks:load', function(){
+  $('.hamburger-icon').on('click', function(){
+  $(this).toggleClass('active');
+});
+});

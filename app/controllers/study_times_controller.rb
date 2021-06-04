@@ -22,21 +22,8 @@ class StudyTimesController < ApplicationController
   end
 
   def daily_show
-    date = params[:id].to_s
-    @daily_study_details = StudyTime.where(user_id:current_user.id, study_date: date)
-  end
-
-  def edit
-    @study_time = StudyTime.find(params[:id])
-  end
-
-  def update
-    @study_time = StudyTime.find(params[:id])
-    # @study_time.update(hour: params[:hour]*60 ,min: params[:min])
-    @study_time.min = params[:study_time][:min].to_i + (params[:study_time][:hour].to_i)*60
-    @study_time.comment = params[:study_time][:comment]
-    @study_time.save
-    redirect_to study_time_path(current_user.id)
+    @date = params[:id].to_s
+    @daily_study_details = StudyTime.where(user_id:current_user.id, study_date: @date)
   end
 
   def destroy

@@ -19,7 +19,7 @@
               <%= image_tag('logo.jpg') %>
              <% end %>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
+               <div class="hamburger-icon"></div>
              </button>
              <div class="collapse navbar-collapse" id="navbarNavDropdown">
                <ul class="navbar-nav ml-auto">
@@ -51,7 +51,7 @@
                   </li>
                   <li class="header-list">
                     <%= link_to timeline_path, method: :get do %>
-                      <i class="far fa-comment-dots"></i>ひとりごと
+                      <i class="far fa-comment-dots"></i>タイムライン
                     <% end %>
                   </li>
                   <li class="header-list">
