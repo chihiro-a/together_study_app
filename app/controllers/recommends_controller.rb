@@ -1,4 +1,6 @@
 class RecommendsController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
+
   def new
     @recommend = Recommend.new
   end
@@ -7,6 +9,7 @@ class RecommendsController < ApplicationController
     @recommend = Recommend.new(recommend_params)
     @recommend.user_id = current_user.id
     @recommend.save
+    flash[:notice] = "投稿が完了しました。"
     redirect_to recommend_path(@recommend.id)
   end
 
@@ -21,6 +24,9 @@ class RecommendsController < ApplicationController
 
   def edit
     @recommend = Recommend.find(params[:id])
+    if @recommend.user != current_user
+      redirect_to recommends_path
+    end
   end
 
   def update

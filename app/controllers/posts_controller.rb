@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only:[:new]
+
   def new
     @post = Post.new
   end
@@ -8,15 +10,15 @@ class PostsController < ApplicationController
     user = current_user
     @post.user_id = user.id
     @post.save
-    redirect_to posts_path
-  end
-
-  def show
-    @post = Post.find(params[:id])
+    flash[:notice] = "ひとりごとを言いました"
+    redirect_to user_path(user)
   end
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user != current_user
+      redirect_to posts_path
+    end
   end
 
   def update

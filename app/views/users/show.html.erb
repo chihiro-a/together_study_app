@@ -23,9 +23,6 @@
                         <% end %>
                      <% end %>
                  </div>
-                 <div class="btn">
-                     <%= link_to "勉強時間をみる" ,study_time_path(@user.id), class:"btn btn-secondary" %>
-                 </div>
                  <% if @user == current_user %>
                     <div id="is_active_buttons_<%= @user.id %>" class="btn">
                         <%= render partial: 'users/is_active', locals: { user: @user } %>
@@ -33,7 +30,16 @@
                     <div class="btn">
                         <%= link_to "勉強時間登録" ,new_study_time_path, class:"btn btn-secondary" %>
                     </div>
+                    <div class="btn">
+                        <%= link_to "勉強時間をみる" ,study_time_path(@user.id), class:"btn btn-secondary" %>
+                    </div>
+                    <div class="btn">
+                        <%= link_to "ひとりごとをいう" , new_post_path, class:"btn btn-secondary" %>
+                    </div>
                 <% else %>
+                    <div class="btn">
+                        <%= link_to "勉強時間をみる" ,study_time_path(@user.id), class:"btn btn-secondary" %>
+                    </div>
                     <div id="follow_buttons_<%= @user.id %>">
                        <%= render partial: 'users/relationship', locals: { user: @user } %>
                     </div>

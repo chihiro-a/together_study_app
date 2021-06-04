@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
     @study_times = @user.study_times
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
   end
 
-  def index
+  def index #勉強中ユーザ一覧
     @studying_users = User.where(is_active: true).order(updated_at: "DESC")
   end
 
