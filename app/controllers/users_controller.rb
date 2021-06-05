@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @recommends = @user.recommends.page(params[:page]).reverse_order.per(10)
     @studying_users = User.where(is_active:true).limit(3).order(updated_at: "DESC")
     @posts = @user.posts.page(params[:page]).reverse_order.per(5)
+    d = Date.today
+    @weekly_times = StudyTime.where("study_date": d.all_week).where("user_id": params[:id]).all.sum(:min)/60.0
   end
 
   def edit

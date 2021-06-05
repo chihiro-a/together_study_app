@@ -31,6 +31,7 @@ $('#tab-menu a').on('click', function(event) {
 });
 });
 
+
 $(document).on('turbolinks:load', function(){
   $('.hamburger-icon').on('click', function(){
   $(this).toggleClass('active');

@@ -1,8 +1,8 @@
 <div class="container">
   <div class="text-center">
     <ul id="tab-menu">
-      <li><a href="#tab1" class="active">週間ランキング</a></li>
-      <li><a href="#tab2" class="">月間ランキング</a></li>
+      <li><a href="#tab1" class="active no-underline">週間ランキング</a></li>
+      <li><a href="#tab2" class="no-underline">月間ランキング</a></li>
     </ul>
     <div id="tab-contents">
           <div id="tab1" class="tab">
@@ -13,7 +13,7 @@
                 <th class="rank-hour">勉強時間</th>
               </tr>
               <% rank_count = 0 %>
-              <% @weekly_results.each do |  user , min | %>
+              <% @weekly_ranks.each do |  user , min | %>
               <tr>
                 <td><%= rank_count += 1 %>位</td>
                 <td><% user = User.find(user) %>
@@ -29,7 +29,6 @@
             </table>
             </div>
             <div id="tab2" class="tab">
-              <p>TAB2のテキストが入ります。TAB2のテキストが入ります。</p>
               <table class="ranking-table">
                 <tr>
                   <th class="rank">順位</th>
@@ -37,7 +36,7 @@
                   <th class="rank-hour">勉強時間</th>
                 </tr>
                 <% rank_count = 0 %>
-                <% @monthly_results.each do |  user , min | %>
+                <% @monthly_ranks.each do |  user , min | %>
                 <tr>
                   <td><%= rank_count += 1 %>位</td>
                   <td><% user = User.find(user) %>

@@ -40,7 +40,6 @@
  padding: 10px;
 }
 
-
 input[type="text"] {
  width: 300px;
  height: 40px;
@@ -57,14 +56,17 @@ input[type="password"] {
 }
 
 textarea {
-    resize: horizontal;
-    width: 300px;
+ resize: horizontal;
+ width: 300px;
 }
 
-// これなに？？↓
 .profile {
- width: 70%;
  text-align: center;
+ background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);
+}
+
+.profile-name, .introduction {
+ color: white;
 }
 
 .profile-image {
@@ -79,57 +81,57 @@ textarea {
  vertical-align: top;
 }
 
-.introduction {
- display: flex;
- align-items: center;
+.card-body {
+ font-size: 20px;
 }
 
 .card {
-  width: 350px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px #ccc;
-  text-align: center;
-  margin: 0 auto;
+ width: 100%;
+ background: #fff;
+ border-radius: 5px;
+ box-shadow: 0 2px 5px #ccc;
+ text-align: center;
+ margin: 0 auto;
 }
 
 .card-img {
-  max-width: 340px;
-  height: auto;
-  margin: 0 auto 5px auto;
+ // max-width: 340px;
+ max-width: 90%;
+ height: auto;
+ margin: 0 auto 5px auto;
 }
 
 .card-content {
-  padding: 20px;
+ padding: 20px;
 }
 
 .card-title {
-  font-size: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
+ font-size: 20px;
+ margin-bottom: 20px;
+ text-align: center;
+ color: #333;
 }
 
 .card-text {
-  color: #777;
-  font-size: 14px;
-  line-height: 1.5;
+ color: #777;
+ font-size: 14px;
+ line-height: 1.5;
 }
 
 .card-link {
-  text-align: center;
-  border-top: 1px solid #eee;
-  padding: 20px;
+ text-align: center;
+ border-top: 1px solid #eee;
+ padding: 20px;
 }
 
 .card-link a {
-  text-decoration: none;
-  color: #0bd;
-  margin: 0 10px;
+ text-decoration: none;
+ color: #0bd;
+ margin: 0 10px;
 }
 
 .card-link a:hover {
-  color: #0090aa;
+ color: #0090aa;
 }
 
 .user-image {
@@ -146,15 +148,6 @@ textarea {
 
 .book-title {
  max-width: 100%;
-}
-
-.card {
-  width: 350px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px #ccc;
-  text-align: center;
-  margin: 0 auto;
 }
 
 .recommend-info {
@@ -187,7 +180,7 @@ textarea {
 }
 
 .pagination {
-  justify-content: center;
+ justify-content: center;
 }
 
 .top {
@@ -201,22 +194,28 @@ textarea {
  color: white;
 }
 
+.welcome-massage {
+ font-size: 40px;
+ font-weight: bold;
+ padding: 10px;
+}
+
 .hamburger-icon {
-  background-image: url(menu.jpg);
-  width: 50px;
-  height: 50px;
-  background-size: cover;
+ background-image: url(menu.jpg);
+ width: 50px;
+ height: 50px;
+ background-size: cover;
 }
 
 .hamburger-icon.active {
-  background-image: url(close.jpg);
-  width: 50px;
-  height: 50px;
-  background-size: cover;
+ background-image: url(close.jpg);
+ width: 50px;
+ height: 50px;
+ background-size: cover;
 }
 
 .box1-ext {
-  border: 10px solid black;
+ border: 10px solid black;
 }
 
 .header-list {
@@ -255,41 +254,41 @@ textarea {
 
 
 #tab-menu {
-  display: flex;
+ display: flex;
 }
 
 #tab-menu li {
-  list-style-type: none;
-  width: 50%;
+ list-style-type: none;
+ width: 50%;
 }
 
 #tab-menu li a {
  display: block;
  padding: 20px;
- text-align: center;
  border-bottom: none;
 }
 
 #tab-menu .active {
  pointer-events: none;
- color: black;
+ color: white;
+ background-color: #0bd;
 }
 
 #tab-contents {
-  display: flex;
-  flex-wrap: wrap;
+ display: flex;
+ flex-wrap: wrap;
 }
 
 #tab-contents .tab {
-  width: 100%;
-  padding: 30px;
-  background: #fff;
-  border-top: none;
+ width: 100%;
+ padding: 30px;
+ background: #fff;
+ border-top: none;
 }
 
 #tab-contents p {
-  color: #000;
-  line-height: 2.5;
+ color: #000;
+ line-height: 2.5;
 }
 
 .tab1 {
@@ -302,7 +301,13 @@ textarea {
  color: white;
 }
 
-.errors {
+.error {
  color: red;
+ text-align: center;
+}
+
+h1 {
+ background: #f4f4f4;
+ margin: 0 auto;
  text-align: center;
 }
