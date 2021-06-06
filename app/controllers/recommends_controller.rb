@@ -34,13 +34,18 @@ class RecommendsController < ApplicationController
 
   def update
     @recommend = Recommend.find(params[:id])
-    @recommend.update(recommend_params)
-    redirect_to recommend_path(@recommend.id)
+    if @recommend.update(recommend_params)
+      flash[:notice] = "投稿内容を変更しました。"
+      redirect_to recommend_path(@recommend.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @recommend = Recommend.find(params[:id])
     @recommend.delete
+    flash[:notice] = "投稿を削除しました。"
     redirect_to recommends_path
   end
 

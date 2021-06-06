@@ -22,8 +22,12 @@
   </div>
     </div>
     <% if @recommend.user == current_user %>
-      <%= link_to "編集する",edit_recommend_path(@recommend.id), class:"no-underline" %>
-      <%= link_to "削除する",recommend_path(@recommend.id), class:"no-underline", method: :delete,"data-confirm"=>"削除しますか？" %>
+      <%= link_to edit_recommend_path(@recommend.id), class:"no-underline" do %>
+        編集<i class="fas fa-edit"></i>
+      <% end %>
+      <%= link_to recommend_path(@recommend.id), class:"no-underline", method: :delete,"data-confirm"=>"削除しますか？" do %>
+        削除<i class="fas fa-trash-alt"></i>
+      <% end %>
     <% end %>
   </div>
 
@@ -35,9 +39,9 @@
     </p>
       <%= f.submit"コメントする" %>
   <% end %>
-  
+
     <p>コメント件数：<%= @recommend.recommend_comments.count %></p>
-  
+
     <table>
       <% @recommend.recommend_comments.each do |recommend_comment| %>
       <tr>
@@ -61,7 +65,9 @@
         </td>
         <td>
           <% if recommend_comment.user == current_user %>
-            <%= link_to"コメントを削除", "#{@recommend.id}/recommend_comments/#{recommend_comment.id}", class:"no-underline", method: :delete,"data-confirm"=>"コメントを削除しますか？"%>
+            <%= link_to "#{@recommend.id}/recommend_comments/#{recommend_comment.id}", class:"no-underline", method: :delete,"data-confirm"=>"コメントを削除しますか？" do %>
+              削除<i class="fas fa-trash-alt"></i>
+            <% end %>
           <% end %>
         </td>
       </tr>

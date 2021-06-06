@@ -6,11 +6,13 @@ class RecommendCommentsController < ApplicationController
     @recommend_comment = current_user.recommend_comments.new(recommend_comment_params)
     @recommend_comment.recommend_id = @recommend.id
     @recommend_comment.save
+    flash[:notice] = "コメントを投稿しました。"
     redirect_to recommend_path(@recommend)
   end
 
   def destroy
     @recommend_comment = RecommendComment.find_by(id: params[:id], recommend_id: params[:recommend_id]).destroy
+    flash[:notice] = "コメントを削除しました。"
     redirect_to recommend_path(params[:recommend_id])
   end
 
