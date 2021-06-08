@@ -1,0 +1,77 @@
+<div class="container">
+
+  <div class="card card-recommend">
+    <div class="card-content">
+      <h1 class="card-title">『<%= @recommend.title %>』</h1>
+      <h6 class="recommend-info">
+        出版社　<%= @recommend.publisher %></br>
+        著者　<%= @recommend.outher %>
+      </h6>
+      <div>投稿者 :
+        <%= link_to user_path(@recommend.user.id), class:"no-underline" ,method: :get do %>
+          <%= attachment_image_tag @recommend.user, :profile_image, fallback:"no_image.jpg",class:"mt-3 rounded-circle border user-image" %>
+          <%= @recommend.user.name %>
+        <% end %>
+        <%= @recommend.updated_at.strftime("%Y/%m/%e %H:%M") %>
+      </div>
+      <div>投稿者コメント：
+        <%= @recommend.body %>
+      </div>
+      <div id="favorites_buttons_<%= @recommend.id %>">
+     <%= render partial: 'recommends/favorite', locals: { recommend: @recommend } %>
+  </div>
+    </div>
+    <% if @recommend.user == current_user %>
+      <%= link_to edit_recommend_path(@recommend.id), class:"no-underline" do %>
+        編集<i class="fas fa-edit"></i>
+      <% end %>
+      <%= link_to recommend_path(@recommend.id), class:"no-underline", method: :delete,"data-confirm"=>"削除しますか？" do %>
+        削除<i class="fas fa-trash-alt"></i>
+      <% end %>
+    <% end %>
+  </div>
+
+    <%= render partial: 'recommends/rakuten_search' %>
+
+  <%= form_with(model:[@recommend, @recommend_comment], method: :post,local: true) do |f| %>
+    <p class="pt-3">
+      <%= f.text_field :recommend_comment,placeholder:"コメントを入力" %>
+    </p>
+      <%= f.submit"コメントする" %>
+  <% end %>
+
+    <p>コメント件数：<%= @recommend.recommend_comments.count %></p>
+
+    <table>
+      <% @recommend.recommend_comments.each do |recommend_comment| %>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to user_path(recommend_comment.user.id), class:"no-underline", method: :get do %>
+          <%= attachment_image_tag recommend_comment.user, :profile_image, fallback:"no_image.jpg",class:"mt-3 rounded-circle border user-image" %>
+          <%= recommend_comment.user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= recommend_comment.recommend_comment %>
+        </td>
+        <td>
+          <%= recommend_comment.updated_at.strftime("%Y/%m/%e %H:%M") %>
+        </td>
+        <td>
+          <% if recommend_comment.user == current_user %>
+            <%= link_to "#{@recommend.id}/recommend_comments/#{recommend_comment.id}", class:"no-underline", method: :delete,"data-confirm"=>"コメントを削除しますか？" do %>
+              削除<i class="fas fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+
+</div>

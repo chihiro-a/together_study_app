@@ -1,0 +1,29 @@
+  <div class="errors">
+    <% if @study_time.errors.any? %>
+      <%= @study_time.errors.count %>件のエラーが発生しました
+      <% @study_time.errors.full_messages.each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="study-time">
+    <%= form_with model:@study_time , url:"/study_times", local:true do |f| %>
+    <div class="text-left">
+      <%= f.text_field :hour, class:"input-studytime", placeholder:"半角入力" %>時間
+    </div>
+    <div class="text-left">
+      <%= f.text_field :min, class:"input-studytime", placeholder:"半角入力" %>分
+    </div>
+    <div  class="text-left">
+      <%= f.text_field :comment,placeholder:"コメント" %>
+    </div>
+    <div class="text-center">
+      <%= f.submit"登録する",class:"btn btn-success post-btn"  %>
+    </div>
+    <% end %>
+  </div>
+
+

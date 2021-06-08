@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= @user.name %>の勉強時間一覧</h1>
+
+  <% @daily_times.each do |date , min| %>
+    <% if @user == current_user %>
+      <p class="border-bottom">
+        <%= date %>
+        <%= link_to (min/60.0).floor(1),daily_show_path(date) %>時間
+      </p>
+    <% else %>
+      <p class="border-bottom">
+        <%= date %>
+        <%= (min/60.0).floor(1) %>時間
+      </p>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,313 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.favorite {
+ color:pink;
+}
+
+.no-underline {
+ text-decoration: none !important;
+ color: #0bd;
+}
+
+.no-underline :hover {
+ color: #0090aa;
+}
+
+.sign-field {
+ padding: 10px;
+}
+
+input[type="text"] {
+ width: 300px;
+ height: 40px;
+}
+
+input[type="email"] {
+ width: 300px;
+ height: 40px;
+}
+
+input[type="password"] {
+ width: 300px;
+ height: 40px;
+}
+
+textarea {
+ resize: horizontal;
+ width: 300px;
+}
+
+.profile {
+ text-align: center;
+ background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);
+}
+
+.profile-name, .introduction {
+ color: white;
+}
+
+.profile-image {
+ padding: 20px;
+}
+
+.btn, .inline-block {
+ display: inline-block;
+}
+
+.post-img {
+ vertical-align: top;
+}
+
+.card-body {
+ font-size: 20px;
+}
+
+.card {
+ width: 100%;
+ background: #fff;
+ border-radius: 5px;
+ box-shadow: 0 2px 5px #ccc;
+ text-align: center;
+ margin: 0 auto;
+}
+
+.card-img {
+ // max-width: 340px;
+ max-width: 90%;
+ height: auto;
+ margin: 0 auto 5px auto;
+}
+
+.card-content {
+ padding: 20px;
+}
+
+.card-title {
+ font-size: 20px;
+ margin-bottom: 20px;
+ text-align: center;
+ color: #333;
+}
+
+.card-text {
+ color: #777;
+ font-size: 14px;
+ line-height: 1.5;
+}
+
+.card-link {
+ text-align: center;
+ border-top: 1px solid #eee;
+ padding: 20px;
+}
+
+.card-link a {
+ text-decoration: none;
+ color: #0bd;
+ margin: 0 10px;
+}
+
+.card-link a:hover {
+ color: #0090aa;
+}
+
+.user-image {
+ max-width: 40px;
+}
+
+.text-area {
+ height: 150px;
+}
+
+.post-btn {
+ margin-top: 10px;
+}
+
+.book-title {
+ max-width: 100%;
+}
+
+.recommend-info {
+ color: #808080;
+}
+
+.card-recommend {
+ width: 100%;
+}
+
+.input-studytime {
+ width: 100px !important;
+}
+
+.study-time {
+ margin: 0 auto;
+ max-width: 30%;
+}
+
+.search-form {
+ width: 30%;
+}
+
+.recommend-list {
+ margin-top: 10px;
+}
+
+.edit-recommend {
+ margin: 0 auto;
+}
+
+.pagination {
+ justify-content: center;
+}
+
+.top {
+ background-image: image-url("top-img.jpg");
+ width: auto;
+ height: 700px;
+ background-size: cover;
+}
+
+.top-massage {
+ color: white;
+}
+
+.welcome-massage {
+ font-size: 40px;
+ font-weight: bold;
+ padding: 10px;
+}
+
+.hamburger-icon {
+ background-image: image-url("menu.jpg");
+ width: 50px;
+ height: 50px;
+ background-size: cover;
+}
+
+.hamburger-icon.active {
+ background-image: image-url("close.jpg");
+ width: 50px;
+ height: 50px;
+ background-size: cover;
+}
+
+.box1-ext {
+ border: 10px solid black;
+}
+
+.header-list {
+ padding: 5px;
+}
+
+.ranking-table {
+ margin: 0 auto;
+ width: 350px;
+ border-collapse: collapse;
+}
+
+.ranking-table th, .ranking-table td {
+ border: solid 1px black;
+}
+
+.ranking-table th{
+ background-color: #b0c4de;
+}
+
+.rank {
+ width: 50px;
+}
+
+.rank-user-name {
+ width: 200px;
+}
+
+.rank-hour {
+ width: 100px;
+}
+
+.times-table {
+ margin: 0 auto;
+}
+
+
+#tab-menu {
+ display: flex;
+}
+
+#tab-menu li {
+ list-style-type: none;
+ width: 50%;
+}
+
+#tab-menu li a {
+ display: block;
+ padding: 20px;
+ border-bottom: none;
+}
+
+#tab-menu .active {
+ pointer-events: none;
+ color: white;
+ background-color: #0bd;
+}
+
+#tab-contents {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+#tab-contents .tab {
+ width: 100%;
+ padding: 30px;
+ background: #fff;
+ border-top: none;
+}
+
+#tab-contents p {
+ color: #000;
+ line-height: 2.5;
+}
+
+.tab1 {
+ border-bottom: 1px solid red;
+}
+
+.flash {
+ background-color: #0bd;
+ text-align: center;
+ color: white;
+}
+
+.error {
+ color: red;
+ text-align: center;
+}
+
+h1 {
+ background: #f4f4f4;
+ margin: 0 auto;
+ text-align: center;
+}

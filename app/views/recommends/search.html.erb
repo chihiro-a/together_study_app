@@ -1,0 +1,44 @@
+<h1>検索結果</h1>
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :keyword ,placeholder:"タイトル検索"%>
+  <%= f.submit "検索" %>
+<% end %>
+
+<table>
+    <tr>
+        <th>タイトル</th>
+        <th>著者</th>
+        <th>出版社</th>
+        <th>コメント</th>
+        <th>投稿者</th>
+        <th></th>
+    </tr>
+    <% @recommends.each do |recommend| %>
+    <tr>
+        <td>
+            <%= link_to recommend.title,recommend_path(recommend.id), class:"no-underline" %>
+        </td>
+        <td>
+            <%= recommend.outher %>
+        </td>
+        <td>
+            <%= recommend.publisher %>
+        </td>
+        <td>
+            <%= recommend.body %>
+        </td>
+        <td>
+            <%= recommend.user.name %>
+        </td>
+        <td>
+            <i class="fas fa-heart favorite"></i><span class="favorite"><%= recommend.favorites.count %>
+        </td>
+
+    </tr>
+    <% end %>
+</table>
+
+
+
+
+

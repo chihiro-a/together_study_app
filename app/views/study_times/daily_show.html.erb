@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="text-center">
+    <%= @date %>の勉強内容詳細
+  </div>
+  <table class="times-table">
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @daily_study_details.each do |daily_study_detail| %>
+    <tr class="border-bottom">
+      <td>
+         <%= daily_study_detail.comment %>
+      </td>
+      <td class="p-4">
+        <%= (daily_study_detail.min/60.0).floor(2) %>時間
+      </td>
+      <td>
+        <% if daily_study_detail.user == current_user %>
+          <%= link_to study_time_path(daily_study_detail.id), class:"no-underline", method: :delete do %>
+          <i class="fas fa-trash-alt"></i>削除
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

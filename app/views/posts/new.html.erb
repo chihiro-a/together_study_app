@@ -1,0 +1,27 @@
+<div class="errors">
+  <% if @post.errors.any? %>
+    <%= @post.errors.count %>件のエラーが発生しました
+    <% @post.errors.full_messages.each do |message| %>
+    <div>
+      <%= message %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="text-center">
+  <h3>ひとりごとを言う</h3>
+  <%= form_with model:@post , url:"/posts" , local:true do |f| %>
+  <div>
+    <%= f.text_area :body , placeholder:"ひとりごと", class:"text-area" %>
+  </div>
+  <div>
+    <%= f.attachment_field :image, placeholder: "プロフィール画像" %>
+  </div>
+  <div>
+    <%= f.submit"つぶやく",class:"btn btn-success post-btn" %>
+  </div>
+  <% end %>
+</div>
+
+

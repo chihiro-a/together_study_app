@@ -1,0 +1,30 @@
+
+<div class="text-center">
+  <div class="errors">
+    <% if @recommend.errors.any? %>
+      <%= @recommend.errors.count %>件のエラーが発生しました
+      <% @recommend.errors.full_messages.each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <%= form_with model:@recommend , url:"/recommends" , local:true do |f| %>
+    <p>
+      <%= f.text_field :title, placeholder:"タイトル" %>
+    </p>
+    <p>
+      <%= f.text_field :outher, placeholder:"著者" %>
+    </p>
+    <p>
+      <%= f.text_field :publisher, placeholder:"出版社" %>
+    </p>
+    <div>
+        <%= f.text_area :body, placeholder:"コメント",class:"text-area" %>
+    </div>
+  <%= f.submit"登録する", class:"btn btn-success post-btn" %>
+  <% end %>
+</div>

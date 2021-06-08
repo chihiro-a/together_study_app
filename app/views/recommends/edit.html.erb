@@ -1,0 +1,22 @@
+<table class="edit-recommend">
+  <%= form_with model:@recommend , url:"/recommends/#{@recommend.id}", local:true do |f| %>
+    <tr>
+      <th>タイトル<td><%= f.text_field :title %></td></th>
+    </tr>
+    <tr>
+      <th>著者<td><%= f.text_field :outher %></td></th>
+    </tr>
+    <tr>
+      <th>出版社<td><%= f.text_field :publisher %></td></th>
+    </tr>
+    <tr>
+      <th>コメント<td><%= f.text_area :body %></td></th>
+    </tr>
+    <tr>
+      <th><td><%= f.submit "編集内容を登録する",class:"btn btn-success post-btn" %></td></th>
+    </tr>
+    <% end %>
+</table>
+
+
+

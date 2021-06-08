@@ -1,0 +1,24 @@
+<% @posts.each do | post | %>
+    <section class="card">
+      <div class="card-content">
+        <h1 class="card-title">
+            <%= attachment_image_tag post.user, :profile_image, fallback:"no_image.jpg",class:"mt-3 rounded-circle border user-image" %>
+            <%= link_to post.user.name,user_path(post.user.id), class:"no-underline" %>
+        </h1>
+        <p class="card-text"><%= post.body %></p>
+      </div>
+      <%= attachment_image_tag post, :image, class:"card-img" %>
+      <% if post.user == current_user %>
+          <div class="card-link">
+              <%= link_to edit_post_path(post.id), class:"no-underline" do %>
+                編集<i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to post_path(post.id),method: :delete,"data-confirm"=>"削除しますか？" , class:"no-underline" do %>
+                削除<i class="fas fa-trash-alt"></i>
+              <% end %>
+          </div>
+      <% end %>
+      <h7><%= post.updated_at.strftime("%Y/%m/%e %H:%M") %></h7>
+    </section>
+<% end %>
+<%= paginate @posts %>

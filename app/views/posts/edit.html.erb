@@ -1,0 +1,24 @@
+<div class="errors">
+  <% if @post.errors.any? %>
+    <%= @post.errors.count %>件のエラーが発生しました
+    <% @post.errors.full_messages.each do |message| %>
+    <div>
+      <%= message %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="text-center">
+  <%= form_with model:@post , url:"/posts/#{@post.id}", local:true do |f| %>
+    <div>
+       <%= f.text_area :body, class:"text-area" %>
+    </div>
+    <div>
+       <%= f.attachment_field :image %>
+    </div>
+    <div>
+      <%= f.submit "更新", class:"btn btn-success post-btn" %>
+    </div>
+  <% end %>
+</div>

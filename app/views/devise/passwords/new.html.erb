@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2>パスワードの再登録</h2>
+    </div>
+  </div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row sign-field">
+      <div class="col text-center">
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力" %>
+          </div>
+      </div>
+    </div>
+    <div class="row sign-field">
+      <div class="col text-center">
+        <div class="actions">
+          <%= f.submit "パスワード再登録" ,class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+    <div class="row">
+      <div class="col text-center">
+        <%= link_to "新規登録　", new_user_registration_path, class:"no-underline" %>
+        <%= link_to "　ログイン", new_user_session_path, class:"no-underline" %>
+      </div>
+    </div>
+</div>
