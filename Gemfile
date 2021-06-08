@@ -74,3 +74,7 @@ gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
 
 gem 'rakuten_web_service'
+
+group :production do
+  gem 'mysql2'
+end
