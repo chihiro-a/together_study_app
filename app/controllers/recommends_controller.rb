@@ -63,9 +63,9 @@ class RecommendsController < ApplicationController
     end
   end
 
-
   private
+
   def recommend_params
-    params.require(:recommend).permit(:title,:outher,:publisher,:body)
+    params.require(:recommend).permit(:title, :outher, :publisher, :body)
   end
 end

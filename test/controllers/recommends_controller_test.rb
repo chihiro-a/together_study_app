@@ -20,5 +20,4 @@ class RecommendsControllerTest < ActionDispatch::IntegrationTest
     get recommends_edit_url
     assert_response :success
   end
-
 end

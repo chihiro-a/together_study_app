@@ -8,7 +8,7 @@ class StudyTimesController < ApplicationController
     @study_time.user_id = current_user.id
     @study_time.study_date = Date.today
     @study_time.comment = params[:study_time][:comment]
-    hour = (params[:study_time][:hour].to_i)*60
+    hour = params[:study_time][:hour].to_i * 60
     min = params[:study_time][:min]
     @study_time.min = hour.to_i + min.to_i
     if @study_time.save
@@ -26,7 +26,7 @@ class StudyTimesController < ApplicationController
 
   def daily_show
     @date = params[:id].to_s
-    @daily_study_details = StudyTime.where(user_id:current_user.id, study_date: @date)
+    @daily_study_details = StudyTime.where(user_id: current_user.id, study_date: @date)
   end
 
   def destroy
@@ -36,8 +36,8 @@ class StudyTimesController < ApplicationController
   end
 
   private
-  def study_time_params
-    params.require(:study_time).permit(:year,:date,:hour,:min,:comment)
-  end
 
+  def study_time_params
+    params.require(:study_time).permit(:year, :date, :hour, :min, :comment)
+  end
 end
