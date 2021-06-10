@@ -5,5 +5,4 @@ class FollowsControllerTest < ActionDispatch::IntegrationTest
     get follows_index_url
     assert_response :success
   end
-
 end

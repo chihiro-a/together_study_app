@@ -1,5 +1,5 @@
 class RecommendCommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create,:destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
     @recommend = Recommend.find(params[:recommend_id])

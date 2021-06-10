@@ -3,5 +3,4 @@ class StudyTime < ApplicationRecord
 
   validates :min, presence: true
   validates :comment, presence: true
-
 end

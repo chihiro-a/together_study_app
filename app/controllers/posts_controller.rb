@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only:[:new]
+  before_action :authenticate_user!, only: [:new]
 
   def new
     @post = Post.new
@@ -46,8 +46,8 @@ class PostsController < ApplicationController
   end
 
   private
-  def post_params
-    params.require(:post).permit(:body,:image)
-  end
 
+  def post_params
+    params.require(:post).permit(:body, :image)
+  end
 end
