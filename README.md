@@ -1,24 +1,25 @@
-# README
+# TOGETHER STUDY
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+大学受験勉強を頑張っている受験生のための情報交換・コミュニケーション用SNSです。  
+会員登録をすると、学習時間と内容の記録をし他の受験生とランキング形式で比較できるほか、  
+勉強に役立つ書籍の投稿やそれに対するコメント、日々のちょっとしたひとりごとの投稿をすることができます。  
 
-Things you may want to cover:
+### サイトテーマ
+頑張る受験生を応援しするサイトです。
 
-* Ruby version
+### テーマを選んだ理由
+DMM　WEBCAMP受講中、何度も挫けそうになる瞬間がありました。  
+他の受講生はどれくらい勉強しているのか、参考になる書籍はあるのかなど情報共有できればいいのに…という想いから、  
+勉強を頑張る人たちへ向けて気軽に情報を発信できるツールがあるといいと思いこのテーマを選びました。
 
-* System dependencies
+### ターゲットユーザ
+高校１〜３年生の学生たち
 
-* Configuration
+### 主な利用シーン
+勉強の息抜きをしたい時、勉強のモチベーションが下がっていると感じる時
 
-* Database creation
+## 設計書
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1sUKndf3SGZT63jO9CEDbOSjwkVws-fVSAO1Jo8qrQq8/edit#gid=0
