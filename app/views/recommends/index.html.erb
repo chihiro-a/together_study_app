@@ -1,7 +1,8 @@
 <div class="container">
     <h1 class="text-center">おすすめ書籍一覧</h1>
+
     <div class="text-center p-5">
-    <%= link_to "書籍新規登録" ,new_recommend_path ,class:"btn btn-success" %>
+        <%= link_to "書籍新規登録" ,new_recommend_path ,class:"btn btn-success" %>
     </div>
     <div class="search-form inline-block">
         <p>おすすめ書籍内から検索</p>
@@ -13,12 +14,11 @@
 
     <div class="search-form inline-block">
         <p>楽天市場で検索</p>
-            <%= form_tag :rakuten_search, method: :get do  %>
-              <%= text_field_tag 'keyword', params[:keyword],placeholder:"タイトル検索" %>
-              <%= submit_tag "検索" %>
-            <% end %>
+        <%= form_tag :rakuten_search, method: :get do  %>
+          <%= text_field_tag 'keyword', params[:keyword],placeholder:"タイトル検索" %>
+          <%= submit_tag "検索" %>
+        <% end %>
     </div>
-
 
     <table class="recommend-list">
         <tr>
@@ -49,7 +49,6 @@
             <td>
                 <i class="fas fa-heart favorite"></i><span class="favorite"><%= recommend.favorites.count %>
             </td>
-
         </tr>
         <% end %>
     </table>

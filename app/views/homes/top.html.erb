@@ -12,8 +12,12 @@
   </div>
   <div class="row">
     <dov class="col text-center">
-      <%= link_to "アカウント作成", new_user_registration_path,class:"btn btn-success" %>
-      <%= link_to "ログイン", new_user_session_path,class:"btn btn-success" %>
+      <% if user_signed_in? %>
+        <%= link_to "マイページへ", user_path(current_user.id),class:"btn btn-success" %>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path,class:"btn btn-success" %>
+        <%= link_to "アカウント作成", new_user_registration_path,class:"btn btn-success" %>
+      <% end %>
     </dov>
   </div>
   <div class="row">
