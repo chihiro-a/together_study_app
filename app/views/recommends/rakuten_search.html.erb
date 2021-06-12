@@ -1,21 +1,22 @@
 <%= render partial: 'recommends/rakuten_search' %>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>価格</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% if @items.present? %>
-    <% @items.first(10).each do |item| %>
+<div class="container">
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to item.name, "#{item.url}" %></td>
-        <td align="right"><%= number_with_delimiter(item.price) %>円</td>
+        <th>商品名</th>
+        <th>価格</th>
       </tr>
+    </thead>
+    <tbody>
+      <% if @items.present? %>
+        <% @items.first(10).each do |item| %>
+          <tr>
+            <td><%= link_to item.name, "#{item.url}" %></td>
+            <td align="right"><%= number_with_delimiter(item.price) %>円</td>
+          </tr>
+          <% end %>
       <% end %>
-  <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
