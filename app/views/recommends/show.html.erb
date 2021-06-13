@@ -36,8 +36,8 @@
   <%= form_with(model:[@recommend, @recommend_comment], method: :post,local: true) do |f| %>
     <p class="pt-3">
       <%= f.text_field :recommend_comment,placeholder:"コメントを入力" %>
-    </p>
       <%= f.submit"コメントする" %>
+    </p>
   <% end %>
 
     <p>コメント件数：<%= @recommend.recommend_comments.count %></p>
