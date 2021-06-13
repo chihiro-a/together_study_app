@@ -22,7 +22,7 @@ class RecommendsController < ApplicationController
   end
 
   def index
-    @recommends = Recommend.all.order(id: "DESC")
+    @recommends = Recommend.all.page(params[:page]).order(created_at: "DESC").per(50)
   end
 
   def edit

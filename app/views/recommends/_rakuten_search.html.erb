@@ -1,7 +1,9 @@
-<div class="search-form">
-    <p>楽天市場で検索</p>
-        <%= form_tag :rakuten_search, method: :get do  %>
-          <%= text_field_tag 'keyword', params[:keyword],placeholder:"タイトル検索" %>
-          <%= submit_tag "検索" %>
-        <% end %>
+<div class="container">
+  <h1>楽天市場で検索</h1>
+  <div class="pt-3 pb-3">
+    <%= form_tag :rakuten_search, method: :get do  %>
+      <%= text_field_tag 'keyword', params[:keyword],placeholder:"タイトル検索" %>
+      <%= submit_tag "検索" %>
+    <% end %>
+  </div>
 </div>

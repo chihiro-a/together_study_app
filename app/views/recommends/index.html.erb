@@ -20,14 +20,14 @@
         <% end %>
     </div>
 
-    <table class="recommend-list">
+    <table>
         <tr>
-            <th>タイトル</th>
-            <th>著者</th>
-            <th>出版社</th>
-            <th>コメント</th>
-            <th>投稿者</th>
-            <th></th>
+            <th class="recommend-title">タイトル</th>
+            <th class="recommend-outher">著者</th>
+            <th class="recommend-publisher">出版社</th>
+            <th class="recommend-comment">コメント</th>
+            <th class="recommend-user">投稿者</th>
+            <th class="recommend-favorite"></th>
         </tr>
         <% @recommends.each do |recommend| %>
         <tr>
@@ -51,6 +51,7 @@
             </td>
         </tr>
         <% end %>
+        <%= paginate @recommends %>
     </table>
 </div>
 
