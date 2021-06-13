@@ -1,10 +1,16 @@
-<div class="col text-center">
-  <p>TOGETHER STUDYは、日々の勉強の記録を残したい、</br>
-     リアルタイムで勉強している仲間を見つけてちょっとほっとしたい</br>
-     ちょっとだけ息抜きしたい、</br>
-     そんなあなたのためのSNSです。</br>
-     会員登録することで</p>
-           <%= link_to "アカウント作成", new_user_registration_path,class:"btn btn-success" %>
-      <%= link_to "ログイン", new_user_session_path,class:"btn btn-success" %>
+<div class="text-center p-5">
+  <p class="about-massage">TOGETHER STUDYは、受験勉強サポートのためのWebサイトです。</br>
+     会員登録すると、日々の勉強時間と内容の記録、</br>
+     おすすめ書籍の投稿と閲覧ができるようになります。</br>
+     勉強中は不安がつきもの、</br>
+     今この瞬間に勉強をしているユーザがわかったり</br>
+     誰にいうでもないつぶやきを残したり…</br>
+     あなたの受験勉強を少しだけサポートします。</p>
+  <% if user_signed_in? %>
+    <%= link_to "マイページへ" ,user_path(current_user),class:"btn btn-outline-primary" %>
+  <% else %>
+    <%= link_to "アカウント作成", new_user_registration_path,class:"btn btn-success" %>
+    <%= link_to "ログイン", new_user_session_path,class:"btn btn-success" %>
+  <% end %>
 </div>
 
