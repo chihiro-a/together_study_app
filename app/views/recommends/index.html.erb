@@ -20,14 +20,14 @@
         <% end %>
     </div>
 
-    <table>
+    <table border="1" style="border-collapse: collapse", class="recommend-table">
         <tr>
-            <th class="recommend-title">タイトル</th>
-            <th class="recommend-outher">著者</th>
-            <th class="recommend-publisher">出版社</th>
-            <th class="recommend-comment">コメント</th>
-            <th class="recommend-user">投稿者</th>
-            <th class="recommend-favorite"></th>
+            <th class="items recommend-title">タイトル</th>
+            <th class="items recommend-outher">著者</th>
+            <th class="items recommend-publisher">出版社</th>
+            <th class="items recommend-comment">コメント</th>
+            <th class="items recommend-user">投稿者</th>
+            <th class="items recommend-favorite"></th>
         </tr>
         <% @recommends.each do |recommend| %>
         <tr>
