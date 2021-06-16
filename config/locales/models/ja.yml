@@ -2,16 +2,21 @@ ja:
   activerecord:
     models:
       post: 投稿
+      recommend: おすすめ
+      recommend_comment: 投稿コメント
+      study_time: 勉強時間
+      user: ユーザー
     attributes:
       post:
         body: ひとりごと
-ja:
-  activerecord:
-    models:
-      recommend: おすすめ
-    attributes:
       recommend:
         title: タイトル
         outher: 著者
         publisher: 出版社
         body: コメント
+      recommend_comment:
+        recommend_comment: コメント
+      study_time:
+        comment: 勉強内容
+      user:
+        name: 名前
