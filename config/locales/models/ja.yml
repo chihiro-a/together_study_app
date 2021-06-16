@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        body: ひとりごと
+ja:
+  activerecord:
+    models:
+      recommend: おすすめ
+    attributes:
+      recommend:
+        title: タイトル
+        outher: 著者
+        publisher: 出版社
+        body: コメント

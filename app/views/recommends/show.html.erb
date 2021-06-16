@@ -31,7 +31,18 @@
     <% end %>
   </div>
 
-    <%= render partial: 'recommends/rakuten_search' %>
+  <%= render partial: 'recommends/rakuten_search' %>
+
+  <div class="error">
+    <% if @recommend_comment.errors.any? %>
+      <%= @recommend_comment.errors.count %>件のエラーが発生しました
+      <% @recommend_comment.errors.full_messages.each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 
   <%= form_with(model:[@recommend, @recommend_comment], method: :post,local: true) do |f| %>
     <p class="pt-3">
