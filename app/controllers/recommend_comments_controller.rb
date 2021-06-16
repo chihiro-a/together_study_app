@@ -5,9 +5,12 @@ class RecommendCommentsController < ApplicationController
     @recommend = Recommend.find(params[:recommend_id])
     @recommend_comment = current_user.recommend_comments.new(recommend_comment_params)
     @recommend_comment.recommend_id = @recommend.id
-    @recommend_comment.save
-    flash[:notice] = "コメントを投稿しました。"
-    redirect_to recommend_path(@recommend)
+    if @recommend_comment.save
+      flash[:notice] = "コメントを投稿しました。"
+      redirect_to recommend_path(@recommend)
+    else
+      render '/recommends/show'
+    end
   end
 
   def destroy
