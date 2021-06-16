@@ -1,7 +1,7 @@
 <%= render partial: 'recommends/recommend.error' %>
 
 <table class="edit-recommend">
-  <%= form_with model:@recommend , url:"/recommends/#{@recommend.id}", local:true do |f| %>
+  <%= form_with model:@recommend, local:true do |f| %>
     <tr>
       <th>タイトル<td><%= f.text_field :title %></td></th>
     </tr>

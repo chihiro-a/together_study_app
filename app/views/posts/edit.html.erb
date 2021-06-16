@@ -1,7 +1,7 @@
 <%= render partial: 'posts/post.error' %>
 
 <div class="text-center">
-  <%= form_with model:@post , url:"/posts/#{@post.id}", local:true do |f| %>
+  <%= form_with model:@post, local:true do |f| %>
     <div>
        <%= f.text_area :body, class:"text-area" %>
     </div>

@@ -2,7 +2,7 @@
 
 <div class="text-center">
   <h3>ひとりごとを言う</h3>
-  <%= form_with model:@post , url:"/posts" , local:true do |f| %>
+  <%= form_with model:@post, local:true do |f| %>
   <div>
     <%= f.text_area :body , placeholder:"ひとりごと", class:"text-area" %>
   </div>
