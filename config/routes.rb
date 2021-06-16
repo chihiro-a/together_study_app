@@ -9,9 +9,12 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :recommend_comments, only: [:create, :destroy]
   end
-  resources :users, only:[:show,:edit,:update,:index]
-  patch 'users/:id/start' => 'users#start' ,as:'start'
-  patch 'users/:id/stop' => 'users#stop' ,as:'stop'
+  resources :users, only:[:show,:edit,:update,:index] do
+    member do
+      patch 'start'
+      patch 'stop'
+    end
+  end
   resources :posts, except:[:show, :index]do
     resources :posts_comments, only: [:create, :destroy]
   end
