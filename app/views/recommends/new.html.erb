@@ -2,7 +2,7 @@
 <%= render partial: 'recommends/recommend.error' %>
 
 <div class="text-center">
-  <%= form_with model:@recommend , url:"/recommends" , local:true do |f| %>
+  <%= form_with model:@recommend, local:true do |f| %>
     <p>
       <%= f.text_field :title, placeholder:"タイトル" %>
     </p>
