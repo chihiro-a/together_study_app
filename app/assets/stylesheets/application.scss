@@ -307,9 +307,17 @@ textarea {
 }
 
 h1 {
- background: #f4f4f4;
+ background-color: #f4f4f4;
  margin: 0 auto;
  text-align: center;
+}
+
+.recommend-table {
+ margin-top: 10px;
+}
+
+.items {
+ background-color: #f4f4f4;
 }
 
 .recommend-title {
@@ -354,4 +362,8 @@ h1 {
  text-align: left;
  font-size: 16px;
  line-height: 30px;
+}
+
+footer {
+ height: 100px;
 }
